@@ -13,6 +13,8 @@ jobs:
 
     - name: Add SSH Key
       run: |
+        mkdir ~/.ssh
+        chmod 700 ~/.ssh
         echo "${{secrets.DEPLOY_KEY}}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
 
@@ -20,7 +22,6 @@ jobs:
       run: |
         echo "Host ${{secrets.DEPLOY_HOST}}\n  Hostname ${{secrets.DEPLOY_HOST}}\n  User ${{secrets.DEPLOY_USER}}\n  Port ${{secrets.DEPLOY_PORT}}\n IdentityFile ~/.ssh/id_rsa" > ~/.ssh/config
         chmod 600 ~/.ssh/config
-        chmod 700 ~/.ssh
 
     - name: Sync wp-content directory
       run: rsync -chav --delete --exclude /.git/ --exclude /.github/ ./ ${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
