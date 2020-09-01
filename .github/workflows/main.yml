@@ -13,16 +13,17 @@ jobs:
 
     - name: Add SSH Key
       run: |
-        mkdir ~/.ssh
-        chmod 700 ~/.ssh
-        echo "${{secrets.DEPLOY_KEY}}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+        mkdir -p ${HOME}/.ssh
+        echo "${{secrets.DEPLOY_KEY}}" > ${HOME}/.ssh/id_rsa
+        chmod 700 ${HOME}/.ssh
+        chmod 600 ${HOME}/.ssh/*
+        eval `ssh-agent -s`
+        ssh-add ${HOME}/.ssh/id_rsa
 
     - name: Configure SSH connection
       run: |
         echo "Host ${{secrets.DEPLOY_HOST}}\n  Hostname ${{secrets.DEPLOY_HOST}}\n  User ${{secrets.DEPLOY_USER}}\n  Port ${{secrets.DEPLOY_PORT}}\n IdentityFile ~/.ssh/id_rsa" > ~/.ssh/config
         chmod 600 ~/.ssh/config
-        cat ~/.ssh/config
 
     - name: Sync wp-content directory
-      run: rsync -chav --port 18765 --delete --exclude /.git/ --exclude /.github/ ./ ${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
+      run: rsync -chav -e "ssh -p ${{secrets.DEPLOY_PORT}}" --delete --exclude /.git/ --exclude /.github/ ./ ${{secrets.DEPLOY_USER}}@${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
