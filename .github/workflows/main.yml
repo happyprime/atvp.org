@@ -22,6 +22,7 @@ jobs:
       run: |
         echo "Host ${{secrets.DEPLOY_HOST}}\n  Hostname ${{secrets.DEPLOY_HOST}}\n  User ${{secrets.DEPLOY_USER}}\n  Port ${{secrets.DEPLOY_PORT}}\n IdentityFile ~/.ssh/id_rsa" > ~/.ssh/config
         chmod 600 ~/.ssh/config
+        cat ~/.ssh/config
 
     - name: Sync wp-content directory
-      run: rsync -chav --delete --exclude /.git/ --exclude /.github/ ./ ${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
+      run: rsync -chav --port 18765 --delete --exclude /.git/ --exclude /.github/ ./ ${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
