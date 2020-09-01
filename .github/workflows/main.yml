@@ -20,10 +20,5 @@ jobs:
         eval `ssh-agent -s`
         ssh-add ${HOME}/.ssh/id_rsa
 
-    - name: Configure SSH connection
-      run: |
-        echo "Host ${{secrets.DEPLOY_HOST}}\n  Hostname ${{secrets.DEPLOY_HOST}}\n  User ${{secrets.DEPLOY_USER}}\n  Port ${{secrets.DEPLOY_PORT}}\n IdentityFile ~/.ssh/id_rsa" > ~/.ssh/config
-        chmod 600 ~/.ssh/config
-
     - name: Sync wp-content directory
-      run: rsync -chav -e "ssh -p ${{secrets.DEPLOY_PORT}}" --delete --exclude /.git/ --exclude /.github/ ./ ${{secrets.DEPLOY_USER}}@${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
+      run: rsync -chav -e "ssh -p ${{secrets.DEPLOY_PORT}} -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" --delete --exclude /.git/ --exclude /.github/ ./ ${{secrets.DEPLOY_USER}}@${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
