@@ -21,4 +21,7 @@ jobs:
         ssh-add ${HOME}/.ssh/id_rsa
 
     - name: Sync wp-content directory
-      run: rsync -chav -e "ssh -p ${{secrets.DEPLOY_PORT}} -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" --delete --exclude /.git/ --exclude /.github/ ./ ${{secrets.DEPLOY_USER}}@${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
+      run: rsync -chav --delete \
+        -e "ssh -p ${{secrets.DEPLOY_PORT}} -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" \
+        --exclude-from=.deploy_ignore \
+        ./ ${{secrets.DEPLOY_USER}}@${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
