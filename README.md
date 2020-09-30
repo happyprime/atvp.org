@@ -2,6 +2,13 @@
 
 The wp-content directory for Alternatives to Violence on the Palouse
 
+## Project setup
+
+### Install plugins not in this repository
+
+* `wp plugin install sg-cachepress`
+  * Not necessary for local development.
+
 ## Deployments
 
 ### develop branch
