@@ -6,3 +6,6 @@ README.md
 /node_modules/
 /uploads/
 /upgrade/
+/mu-plugins/
+/themes/twentytwenty/
+/plugins/
