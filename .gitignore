@@ -1,1 +1,19 @@
+# Ignore the upgrade and uploads directories created by WordPress.
+/upgrade
+/uploads
+
+# Ignore any node_modules directories.
 node_modules
+
+# Ignore the entire theme directory.
+/themes/*
+
+# But! Include the index file and any themes we're tracking.
+!/themes/index.php
+!/themes/atvp
+
+# Ignore the entire plugins directory.
+/plugins/*
+
+# But! Include the index file and any plugins we're tracking.
+/plugins/index.php
