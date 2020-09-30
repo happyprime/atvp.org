@@ -1,0 +1,13 @@
+/*
+ Theme Name:   ATVP.org Theme
+ Theme URI:    https://github.com/happyprime/atvp.org
+ Description:  A WordPress theme for atvp.org
+ Author:       Happy Prime
+ Author URI:   https://happyprime.co
+ Version:      0.0.1
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+@import "wp/block-library-5.5.1.css";
+@import "reset.css";
