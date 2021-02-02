@@ -1,0 +1,54 @@
+
+:root {
+	--font-sans: "Source Sans Pro", sans-serif;
+
+	--font-size-smaller: 0.9rem;
+	--font-size-small: 1rem;
+	--font-size-default: 1.125rem;
+	--font-size-large: 1.35rem;
+	--font-size-larger: 2rem;
+	--font-size-largest: 2.5rem;
+
+	@media (--small-viewport) {
+		--font-size-larger: 1.65rem;
+		--font-size-largest: 2rem;
+	}
+
+	--letter-spacing: 0.12em;
+
+	--color-primary: hsl(246, 55%, 30%);
+	--color-primary-light: hsl(246, 55%, 95%);
+	--color-secondary: hsl(177, 31%, 30%);
+	--color-secondary-light: hsl(177, 31%, 95%);
+	--color-accent: hsl(36, 71%, 51%);
+	--color-alert: hsl(3, 75%, 43%);
+
+	--color-gray: hsl(30, 7%, 34%);
+	--color-gray-light: hsl(30, 7%, 95%);
+	--color-gray-dark: hsl(30, 7%, 11%);
+	--color-white: hsl(0, 0%, 100%);
+	--color-black: hsl(0, 0%, 0%);
+
+	--color-hover: var(--color-alternative);
+
+	--spacing: 1.5rem;
+	--spacing-loose: calc(var(--spacing) * 2);
+	--spacing-looser: calc(var(--spacing) * 4);
+	--spacing-tight: calc(var(--spacing) / 2);
+
+	--gutter: var(--spacing);
+
+	--max-width: 1200px;
+	--align-wide: 960px;
+	--max-content-width: calc(620px + (var(--gutter) * 2));
+
+	--header-bar-height: 50px;
+
+	@media (--small-viewport) {
+
+		--spacing: 1rem;
+	}
+
+	--speed: 0.3s;
+	--radius: 3px;
+}

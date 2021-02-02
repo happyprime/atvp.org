@@ -144,6 +144,14 @@ function enqueue_assets() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Enqueue variable fonts via Google.
+	wp_enqueue_style( // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion
+		'google-variable-fonts',
+		'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap',
+		array(),
+		null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+	);
 }
 
 /**
