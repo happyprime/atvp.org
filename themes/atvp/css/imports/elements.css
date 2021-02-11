@@ -14,7 +14,7 @@ h4,
 h5 {
 	font-weight: 900;
 	line-height: 1.13;
-	margin: 1em 0 0.5em;
+	margin: 2em 0 0.5em;
 }
 
 h1 {
@@ -39,12 +39,15 @@ h4 {
 h5 {
 	font-size: var(--font-size-small);
 	font-weight: 700;
+	letter-spacing: var(--letter-spacing);
+	margin-bottom: -0.5em;
+	text-transform: uppercase;
 }
 
 p,
 ol,
 ul {
-	margin: 1.5em 0;
+	margin: 1.25em 0;
 }
 
 .entry-content li {
@@ -100,14 +103,12 @@ figcaption {
 	}
 }
 
-button,
 .button,
 .wp-block-button__link,
 input[type="submit"] {
-	all: unset;
-	background-color: var(--color-secondary);
-	border: 2px solid var(--color-secondary);
-	border-radius: 3px;
+	background-color: var(--color-primary);
+	border: 2px solid var(--color-primary);
+	border-radius: var(--border-radius);
 	color: var(--color-white);
 	cursor: pointer;
 	font-size: var(--font-size-small);
@@ -117,7 +118,7 @@ input[type="submit"] {
 	transition: all var(--speed) ease;
 
 	&:hover {
-		background-color: var(--color-primary);
+		background-color: var(--color-accent);
 		border-color: var(--color-accent);
 		color: var(--color-white);
 	}

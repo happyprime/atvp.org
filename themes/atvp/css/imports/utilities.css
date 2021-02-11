@@ -139,16 +139,24 @@
 	background-color: var(--color-primary);
 }
 
+.has-color-primary-light-background-color {
+	background-color: var(--color-primary-light);
+}
+
 .has-color-secondary-background-color {
 	background-color: var(--color-secondary);
+}
+
+.has-color-secondary-light-background-color {
+	background-color: var(--color-secondary-light);
 }
 
 .has-color-accent-background-color {
 	background-color: var(--color-accent);
 }
 
-.has-color-accent-light-background-color {
-	background-color: var(--color-accent-light);
+.has-color-alert-background-color {
+	background-color: var(--color-alert);
 }
 
 .has-color-gray-background-color {
@@ -159,12 +167,16 @@
 	background-color: var(--color-gray-light);
 }
 
-.has-color-gray-lighter-background-color {
-	background-color: var(--color-gray-lighter);
-}
-
 .has-color-gray-dark-background-color {
 	background-color: var(--color-gray-dark);
+}
+
+.has-color-white-background-color {
+	background-color: var(--color-white);
+}
+
+.has-color-black-background-color {
+	background-color: var(--color-black);
 }
 
 /* --- Text colors --- */
@@ -172,16 +184,24 @@
 	color: var(--color-primary);
 }
 
+.has-color-primary-light-color {
+	color: var(--color-primary-light);
+}
+
 .has-color-secondary-color {
 	color: var(--color-secondary);
+}
+
+.has-color-secondary-light-color {
+	color: var(--color-secondary-light);
 }
 
 .has-color-accent-color {
 	color: var(--color-accent);
 }
 
-.has-color-accent-light-color {
-	color: var(--color-accent-light);
+.has-color-alert-color {
+	color: var(--color-alert);
 }
 
 .has-color-gray-color {
@@ -192,10 +212,14 @@
 	color: var(--color-gray-light);
 }
 
-.has-color-gray-lighter-color {
-	color: var(--color-gray-lighter);
-}
-
 .has-color-gray-dark-color {
 	color: var(--color-gray-dark);
+}
+
+.has-color-white-color {
+	color: var(--color-white);
+}
+
+.has-color-black-color {
+	color: var(--color-black);
 }

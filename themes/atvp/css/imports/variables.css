@@ -42,7 +42,7 @@
 	--align-wide: 960px;
 	--max-content-width: calc(620px + (var(--gutter) * 2));
 
-	--header-bar-height: 50px;
+	--border-radius: 5px;
 
 	@media (--small-viewport) {
 
