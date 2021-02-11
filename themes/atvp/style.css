@@ -2229,12 +2229,12 @@ p.wp-block-subhead {
 :root {
 	--font-sans: "Source Sans Pro", sans-serif;
 
-	--font-size-smaller: 0.9rem;
-	--font-size-small: 1rem;
+	--font-size-small: 0.9rem;
 	--font-size-default: 1.125rem;
-	--font-size-large: 1.35rem;
-	--font-size-larger: 2rem;
-	--font-size-largest: 2.5rem;
+	--font-size-medium: 1.5rem;
+	--font-size-large: 2.25rem;
+	--font-size-larger: 2.75rem;
+	--font-size-huge: 3.75rem;
 
 	@media (max-width: 44em) {
 		--font-size-larger: 1.65rem;
@@ -2292,29 +2292,35 @@ body {
 
 h1,
 h2,
-h3 {
-	font-family: var(--font-sans);
+h3,
+h4,
+h5 {
+	font-weight: 900;
 	line-height: 1.13;
 	margin: 1em 0 0.5em;
 }
 
 h1 {
-	font-size: 3em;
-	font-weight: 400;
-	line-height: 1.06;
-	margin: 0.5em 0;
-}
-
-h2 {
 	font-size: var(--font-size-larger);
 }
 
-h3 {
+h2 {
 	font-size: var(--font-size-large);
+}
+
+h3 {
+	font-size: var(--font-size-medium);
+	font-weight: 700;
+	letter-spacing: var(--letter-spacing);
 }
 
 h4 {
 	font-size: var(--font-size-default);
+	font-weight: 700;
+}
+
+h5 {
+	font-size: var(--font-size-small);
 	font-weight: 700;
 }
 
@@ -2762,6 +2768,31 @@ ul.nav-menu {
 /*--------------------------------------------------------------
   # Typography
 --------------------------------------------------------------*/
+
+.has-normal-font-size {
+	font-size: var(--font-size-default);
+	line-height: 1.5;
+}
+
+.has-medium-font-size {
+	font-size: var(--font-size-medium);
+	line-height: 1.5;
+}
+
+.has-large-font-size {
+	font-size: var(--font-size-large);
+	line-height: 1.5;
+}
+
+.has-larger-font-size {
+	font-size: var(--font-size-larger);
+	line-height: 1.35;
+}
+
+.has-huge-font-size {
+	font-size: var(--font-size-huge);
+	line-height: 1;
+}
 
 .uppercase,
 .is-style-uppercase {

@@ -93,6 +93,32 @@
 /*--------------------------------------------------------------
   # Typography
 --------------------------------------------------------------*/
+
+.has-normal-font-size {
+	font-size: var(--font-size-default);
+	line-height: 1.5;
+}
+
+.has-medium-font-size {
+	font-size: var(--font-size-medium);
+	line-height: 1.5;
+}
+
+.has-large-font-size {
+	font-size: var(--font-size-large);
+	line-height: 1.5;
+}
+
+.has-larger-font-size {
+	font-size: var(--font-size-larger);
+	line-height: 1.35;
+}
+
+.has-huge-font-size {
+	font-size: var(--font-size-huge);
+	line-height: 1;
+}
+
 .uppercase,
 .is-style-uppercase {
 	text-transform: uppercase;
