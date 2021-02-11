@@ -1,12 +1,19 @@
 /*--------------------------------------------------------------
-  # Global layout
+  # General layout
 --------------------------------------------------------------*/
+.site-header,
+.entry-header,
+.entry-content > * {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 var(--gutter);
+	max-width: var(--max-width);
+}
 
 /*--------------------------------------------------------------
   # Site Header
 --------------------------------------------------------------*/
 .site-header {
-	padding: 0 var(--gutter);
 	position: relative;
 
 	@media (--desktop-nav) {
@@ -20,10 +27,6 @@
 
 /* ----- Site Branding ----- */
 .site-branding {
-	position: absolute;
-	text-align: center;
-	max-width: 320px;
-	z-index: 2;
 
 	img {
 		width: auto;

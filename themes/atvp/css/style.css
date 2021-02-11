@@ -11,9 +11,9 @@
 
 @import "imports/reset.css";
 @import "imports/breakpoints.css";
+@import "wp/block-library-5.6.0.css";
 @import "imports/variables.css";
 @import "imports/elements.css";
 @import "imports/global-components.css";
-@import "wp/block-library-5.6.0.css";
 @import "imports/content-components.css";
 @import "imports/utilities.css";
