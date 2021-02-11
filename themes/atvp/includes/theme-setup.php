@@ -91,6 +91,123 @@ function setup() {
 			'flex-height' => true,
 		)
 	);
+
+	// Add support for color palettes.
+	add_theme_support(
+		'editor-color-palette',
+		array(
+			array(
+				'name'  => __( 'Primary', 'atvp' ),
+				'slug'  => 'color-primary',
+				'color' => 'hsl(246, 55%, 30%)',
+			),
+			array(
+				'name'  => __( 'Primary Light', 'atvp' ),
+				'slug'  => 'color-primary-light',
+				'color' => 'hsl(246, 55%, 95%)',
+			),
+			array(
+				'name'  => __( 'Secondary', 'atvp' ),
+				'slug'  => 'color-secondary',
+				'color' => 'hsl(177, 31%, 30%)',
+			),
+			array(
+				'name'  => __( 'Secondary Light', 'atvp' ),
+				'slug'  => 'color-secondary-light',
+				'color' => 'hsl(177, 31%, 95%)',
+			),
+			array(
+				'name'  => __( 'Accent', 'atvp' ),
+				'slug'  => 'color-accent',
+				'color' => 'hsl(36, 71%, 51%)',
+			),
+			array(
+				'name'  => __( 'Alert', 'atvp' ),
+				'slug'  => 'color-alert',
+				'color' => 'hsl(3, 75%, 43%)',
+			),
+			array(
+				'name'  => __( 'Gray Dark', 'atvp' ),
+				'slug'  => 'color-gray-dark',
+				'color' => 'hsl(30, 7%, 11%)',
+			),
+			array(
+				'name'  => __( 'Gray', 'atvp' ),
+				'slug'  => 'color-gray',
+				'color' => 'hsl(30, 7%, 34%)',
+			),
+			array(
+				'name'  => __( 'Gray Light', 'atvp' ),
+				'slug'  => 'color-gray-light',
+				'color' => 'hsl(30, 7%, 95%)',
+			),
+			array(
+				'name'  => __( 'White', 'atvp' ),
+				'slug'  => 'color-white',
+				'color' => '#ffffff',
+			),
+			array(
+				'name'  => __( 'Black', 'atvp' ),
+				'slug'  => 'color-black',
+				'color' => '#000000',
+			),
+		)
+	);
+
+	// Disable custom colors in color palettes.
+	add_theme_support( 'disable-custom-colors' );
+
+	// Add support for font sizes.
+	add_theme_support(
+		'editor-font-sizes',
+		array(
+			array(
+				'name'      => __( 'small', 'atvp' ),
+				'shortName' => __( 'S', 'atvp' ),
+				'size'      => 16,
+				'slug'      => 'small',
+			),
+			array(
+				'name'      => __( 'regular', 'atvp' ),
+				'shortName' => __( 'R', 'atvp' ),
+				'size'      => 21,
+				'slug'      => 'regular',
+			),
+			array(
+				'name'      => __( 'medium', 'atvp' ),
+				'shortName' => __( 'M', 'atvp' ),
+				'size'      => 24,
+				'slug'      => 'medium',
+			),
+			array(
+				'name'      => __( 'large', 'atvp' ),
+				'shortName' => __( 'L', 'atvp' ),
+				'size'      => 36,
+				'slug'      => 'large',
+			),
+			array(
+				'name'      => __( 'larger', 'atvp' ),
+				'shortName' => __( 'XL', 'atvp' ),
+				'size'      => 44,
+				'slug'      => 'larger',
+			),
+			array(
+				'name'      => __( 'huge', 'atvp' ),
+				'shortName' => __( 'H', 'atvp' ),
+				'size'      => 60,
+				'slug'      => 'huge',
+			),
+		)
+	);
+
+	// Disable custom font sizes.
+	add_theme_support( 'disable-custom-font-sizes' );
+
+	// Enable alignwide and alignfull support.
+	add_theme_support( 'align-wide' );
+
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'editor-style.css' );
 }
 
 /**
@@ -144,6 +261,14 @@ function enqueue_assets() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Enqueue variable fonts via Google.
+	wp_enqueue_style( // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion
+		'google-variable-fonts',
+		'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap',
+		array(),
+		null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+	);
 }
 
 /**
