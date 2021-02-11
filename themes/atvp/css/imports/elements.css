@@ -2,7 +2,7 @@ body {
 	color: var(--color-gray-dark);
 	font-family: var(--font-sans);
 	font-size: var(--font-size-default);
-	font-weight: 300;
+	font-weight: 400;
 	line-height: 1.63;
 }
 
@@ -47,6 +47,7 @@ h5 {
 p,
 ol,
 ul {
+	font-weight: 400;
 	margin: 1.25em 0;
 }
 
@@ -112,9 +113,7 @@ input[type="submit"] {
 	color: var(--color-white);
 	cursor: pointer;
 	font-size: var(--font-size-small);
-	letter-spacing: var(--letter-spacing);
 	padding: var(--spacing-tight) var(--spacing);
-	text-transform: uppercase;
 	transition: all var(--speed) ease;
 
 	&:hover {

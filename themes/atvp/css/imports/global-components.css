@@ -10,6 +10,11 @@
 	max-width: var(--max-width);
 }
 
+.entry-header,
+.entry-content > * {
+	max-width: var(--max-content-width);
+}
+
 /*--------------------------------------------------------------
   # Site Header
 --------------------------------------------------------------*/
