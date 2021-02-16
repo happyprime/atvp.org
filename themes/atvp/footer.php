@@ -1,8 +1,31 @@
 <?php
-
+/**
+ * The template for displaying the footer
+ */
 ?>
 
 	<footer id="colophon" class="site-footer">
+
+		<?php if ( has_nav_menu( 'social' ) ) : ?>
+			<nav class="social-menu">
+				<ul class="social-menu-wrapper">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'social',
+							'items_wrap'     => '%3$s',
+							'container'      => false,
+							'depth'          => 1,
+							'link_before'    => '<span>',
+							'link_after'     => '</span>',
+							'fallback_cb'    => false,
+						)
+					);
+					?>
+				</ul>
+			</nav>
+		<?php endif; ?>
+
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'atvp' ) ); ?>">
 				<?php
@@ -16,6 +39,7 @@
 				printf( esc_html__( 'Built by %s', 'atvp' ), '<a href="https://happyprime.co/">Happy Prime</a>' );
 				?>
 		</div><!-- .site-info -->
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
