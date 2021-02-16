@@ -41,3 +41,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Load SVG icons class.
  */
 require_once __DIR__ . '/classes/class-atvp-svg-icons.php';
+
+/**
+ * Load menu functions and filters.
+ */
+require_once __DIR__ . '/includes/menu-functions.php';
