@@ -36,3 +36,8 @@ require_once __DIR__ . '/includes/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require_once __DIR__ . '/includes/jetpack.php';
 }
+
+/**
+ * Load SVG icons class.
+ */
+require_once __DIR__ . '/classes/class-atvp-svg-icons.php';
