@@ -258,6 +258,14 @@ function enqueue_assets() {
 		true
 	);
 
+	wp_add_inline_script(
+		'atvp-navigation',
+		"navigation.init( {
+			menu: document.getElementById( 'primary-menu' ),
+			toggle: document.querySelector( '.menu-toggle' ),
+		} );",
+	);
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

@@ -1,99 +1,210 @@
-/**
- * File navigation.js.
- *
- * Handles toggling the navigation menu for small screens and enables TAB key
- * navigation support for dropdown menus.
- */
-( function() {
-	const siteNavigation = document.getElementById( 'site-navigation' );
+( ( root, factory ) => {
+	root.navigation = factory();
+} )( typeof self !== 'undefined' ? self : this, () => {
+	'use strict';
 
-	// Return early if the navigation don't exist.
-	if ( ! siteNavigation ) {
-		return;
-	}
+	// Object for public APIs.
+	const navigation = {};
 
-	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
-
-	// Return early if the button don't exist.
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
-
-	const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
-
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
-
-	if ( ! menu.classList.contains( 'nav-menu' ) ) {
-		menu.classList.add( 'nav-menu' );
-	}
-
-	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
-	button.addEventListener( 'click', function() {
-		siteNavigation.classList.toggle( 'toggled' );
-
-		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
-			button.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			button.setAttribute( 'aria-expanded', 'true' );
-		}
-	} );
-
-	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-	document.addEventListener( 'click', function( event ) {
-		const isClickInside = siteNavigation.contains( event.target );
-
-		if ( ! isClickInside ) {
-			siteNavigation.classList.remove( 'toggled' );
-			button.setAttribute( 'aria-expanded', 'false' );
-		}
-	} );
-
-	// Get all the link elements within the menu.
-	const links = menu.getElementsByTagName( 'a' );
-
-	// Get all the link elements with children within the menu.
-	const linksWithChildren = menu.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
-
-	// Toggle focus each time a menu link is focused or blurred.
-	for ( const link of links ) {
-		link.addEventListener( 'focus', toggleFocus, true );
-		link.addEventListener( 'blur', toggleFocus, true );
-	}
-
-	// Toggle focus each time a menu link with children receive a touch event.
-	for ( const link of linksWithChildren ) {
-		link.addEventListener( 'touchstart', toggleFocus, false );
-	}
+	// Placeholder for defaults merged with user settings.
+	let settings;
 
 	/**
-	 * Sets or removes .focus class on an element.
+	 * Merge user options with the default settings.
+	 *
+	 * @private
+	 * @param {Object} options  User settings.
 	 */
-	function toggleFocus() {
-		if ( event.type === 'focus' || event.type === 'blur' ) {
-			let self = this;
-			// Move up through the ancestors of the current link until we hit .nav-menu.
-			while ( ! self.classList.contains( 'nav-menu' ) ) {
-				// On li elements toggle the class .focus.
-				if ( 'li' === self.tagName.toLowerCase() ) {
-					self.classList.toggle( 'focus' );
-				}
-				self = self.parentNode;
+	const extendDefaults = ( options ) => {
+		const defaults = {
+			menu: null,
+			toggle: null,
+		};
+
+		let property;
+
+		for ( property in options ) {
+			if ( Object.prototype.hasOwnProperty.call( options, property ) ) {
+				defaults[ property ] = options[ property ];
 			}
 		}
 
-		if ( event.type === 'touchstart' ) {
-			const menuItem = this.parentNode;
-			event.preventDefault();
-			for ( const link of menuItem.parentNode.children ) {
-				if ( menuItem !== link ) {
-					link.classList.remove( 'focus' );
-				}
-			}
-			menuItem.classList.toggle( 'focus' );
+		return defaults;
+	};
+
+	/**
+	 * Add a class to the menu element to leverage for progressive enhacement.
+	 *
+	 * @private
+	 */
+	const updateMenu = () => {
+		settings.menu.classList.add( 'js-menu' );
+	};
+
+	/**
+	 * Update the `button` element used for toggling the menu.
+	 *
+	 * @private
+	 */
+	const updateMenuToggle = () => {
+		const menuToggle = settings.toggle;
+
+		menuToggle.classList.add( 'js-menu-toggle' );
+		menuToggle.setAttribute( 'aria-expanded', 'false' );
+
+		// Revisit for translation/internationalization.
+		menuToggle.setAttribute( 'aria-label', 'Open menu' );
+		menuToggle.hidden = false;
+	};
+
+	/**
+	 * Return a `button` element to use for toggling sub-menus.
+	 *
+	 * @private
+	 */
+	const getSubMenuToggle = () => {
+		const toggleButton = document.createElement( 'button' );
+
+		toggleButton.classList.add( 'submenu-toggle', 'js-sub-menu-toggle' );
+		toggleButton.setAttribute( 'aria-expanded', 'false' );
+
+		// Revisit for translation/internationalization.
+		toggleButton.setAttribute( 'aria-label', 'Open sub-menu' );
+
+		return toggleButton;
+	};
+
+	/**
+	 * Inject `button` elements where appropriate for toggling sub-menus.
+	 *
+	 * @private
+	 */
+	const addSubMenusToggles = () => {
+		const menu = settings.menu;
+
+		// Find any sub-menus.
+		const subMenus = menu.querySelectorAll( 'ul' );
+
+		// Return early if there are no sub-menus.
+		if ( ! subMenus.length ) {
+			return;
 		}
-	}
-}() );
+
+		// Create the toggle button.
+		const toggleButton = getSubMenuToggle();
+
+		// Add a toggle button for each menu sub-menu.
+		subMenus.forEach( ( submenu ) => {
+			const listItem = submenu.parentElement;
+
+			if ( listItem.querySelector( '.js-sub-menu-toggle' ) ) {
+				return;
+			}
+
+			listItem.insertBefore( toggleButton.cloneNode( true ), submenu );
+		} );
+
+		menu.classList.add( 'has-sub-menus', 'js-has-sub-menus' );
+	};
+
+	/**
+	 * Toggle attributes used for handling element display.
+	 *
+	 * @private
+	 * @param {Event}  target   The click event target.
+	 * @param {string} expanded The updated value for the `aria-expanded` attribute.
+	 * @param {string} label    The updated value for the `aria-label` attribute.
+	 * @param {Object} element  The element whose display is being toggled.
+	 */
+	const toggle = ( target, expanded, label, element ) => {
+		target.setAttribute( 'aria-expanded', expanded );
+		target.setAttribute( 'aria-label', label );
+
+		element.classList.toggle( 'toggled-open' );
+	};
+
+	/**
+	 * Handle click events.
+	 *
+	 * @private
+	 * @param {Event} event The click event.
+	 */
+	const clickHandler = ( event ) => {
+		const target = event.target;
+		const expanded = ( 'false' === target.getAttribute( 'aria-expanded' ) )
+			? 'true'
+			: 'false';
+
+		if ( target.classList.contains( 'js-menu-toggle' ) ) {
+			// Revisit for translation/internationalization.
+			const label = ( 'Open menu' === target.getAttribute( 'aria-label' ) )
+				? 'Close menu'
+				: 'Open menu';
+
+			toggle( target, expanded, label, settings.menu );
+
+			document.body.classList.toggle( `${ settings.menu.id }-open` );
+		}
+
+		if ( target.classList.contains( 'js-sub-menu-toggle' ) ) {
+			// Revisit for translation/internationalization.
+			const label = ( 'Open sub-menu' === target.getAttribute( 'aria-label' ) )
+				? 'Close sub-menu'
+				: 'Open sub-menu';
+
+			toggle( target, expanded, label, target.nextElementSibling );
+		}
+	};
+
+	/**
+	 * Destroy the current initialization.
+	 *
+	 * @public
+	 */
+	navigation.destroy = () => {
+		// Return early if the plugin isn't already initialized.
+		if ( ! settings ) {
+			return;
+		}
+
+		// Remove event listeners.
+		settings.menu.removeEventListener( 'click', clickHandler, false );
+		settings.toggle.removeEventListener( 'click', clickHandler, false );
+
+		// Reset variables.
+		settings = null;
+	};
+
+	/**
+	 * Initializes the plugin.
+	 *
+	 * @public
+	 * @param {Object} options        User settings.
+	 * @param {Object} options.menu   The `ul` element containing the menu items. Required. Defaults to `null`.
+	 * @param {Object} options.toggle The element used to toggle the disply of the menu. Required. Defaults to `null`.
+	 */
+	navigation.init = ( options ) => {
+		// Check for required settings.
+		if ( ! options.menu || ! options.toggle ) {
+			return;
+		}
+
+		// Destroy any existing initializations.
+		navigation.destroy();
+
+		// Merge user options with defaults.
+		settings = extendDefaults( options || {} );
+
+		updateMenu();
+
+		updateMenuToggle();
+
+		addSubMenusToggles();
+
+		// Listen for click events on the navigation element.
+		settings.menu.addEventListener( 'click', clickHandler, false );
+		settings.toggle.addEventListener( 'click', clickHandler, false );
+	};
+
+	return navigation;
+} );
