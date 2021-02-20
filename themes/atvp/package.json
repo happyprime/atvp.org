@@ -3,9 +3,10 @@
 	"version": "0.0.1",
 	"description": "A WordPress theme for ATVP",
 	"devDependencies": {
+		"@wordpress/eslint-plugin": "^8.0.2",
 		"autoprefixer": "^10.2.4",
 		"babel-eslint": "^10.1.0",
-		"eslint": "^7.19.0",
+		"eslint": "^7.20.0",
 		"postcss": "^8.2.4",
 		"postcss-cli": "^8.3.1",
 		"postcss-custom-media": "^8.0.0",
@@ -16,6 +17,8 @@
 	},
 	"scripts": {
 		"build": "npm run stylelint & npm run postcss:main & npm run postcss:editor",
+		"lint:theme": "eslint js/*.js",
+		"lint-fix:theme": "eslint js/*.js --fix",
 		"postcss:main": "postcss -o style.css css/style.css",
 		"postcss:editor": "postcss -o editor-style.css css/editor-style.css",
 		"stylelint": "stylelint css/**/*.css"
