@@ -10,6 +10,8 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\set_content_width', 0 );
 add_action( 'widgets_init', __NAMESPACE__ . '\widgets_init' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\remove_core_block_library_styles', 9999 );
+add_filter( 'nav_menu_css_class', __NAMESPACE__ . '\filter_primary_menu_css_class', 10, 3 );
+add_filter( 'nav_menu_item_id', __NAMESPACE__ . '\remove_nav_menu_item_id' );
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -289,4 +291,37 @@ function enqueue_assets() {
 function remove_core_block_library_styles() {
 	wp_dequeue_style( 'wp-block-library' );
 	wp_deregister_style( 'wp-block-library' );
+}
+
+/**
+ * Remove all but a list of allowed classes from the primary menu <li> elements.
+ *
+ * @param string[] $classes CSS classes applied to the menu item's <li> element.
+ * @param WP_Post  $item    The current menu item.
+ * @param stdClass $args    An object of wp_nav_menu() arguments.
+ */
+function filter_primary_menu_css_class( $classes, $item, $args ) {
+	if ( 'primary-menu' === $args->menu_id ) {
+		$allowed_classes = array(
+			'current-menu-item',
+			'menu-item-has-children',
+		);
+
+		$classes = array_filter(
+			$classes,
+			function ( $class ) use ( $allowed_classes ) {
+				return in_array( $class, $allowed_classes, true );
+			}
+		);
+
+	}
+
+	return $classes;
+}
+
+/**
+ * Remove the id attribute from the menu <li> elements.
+ */
+function remove_nav_menu_item_id() {
+	return '';
 }
