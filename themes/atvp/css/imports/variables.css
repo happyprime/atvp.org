@@ -5,14 +5,9 @@
 	--font-size-small: 0.9rem;
 	--font-size-default: 1.125rem;
 	--font-size-medium: 1.5rem;
-	--font-size-large: 2.25rem;
-	--font-size-larger: 2.75rem;
-	--font-size-huge: 3.75rem;
-
-	@media (--small-viewport) {
-		--font-size-larger: 1.65rem;
-		--font-size-largest: 2rem;
-	}
+	--font-size-large: clamp(1.5rem, 3vw, 2.25rem);
+	--font-size-larger: clamp(1.65rem, 4vw, 2.75rem);
+	--font-size-huge: clamp(2rem, 5vw, 3.75rem);
 
 	--letter-spacing: 0.12em;
 
@@ -32,22 +27,17 @@
 	--color-hover: var(--color-alternative);
 
 	--spacing: 1.5rem;
-	--spacing-loose: calc(var(--spacing) * 2);
-	--spacing-looser: calc(var(--spacing) * 4);
-	--spacing-tight: calc(var(--spacing) / 2);
+	--spacing-2: calc(var(--spacing) * 2);
+	--spacing-4: calc(var(--spacing) * 4);
+	--spacing-050: calc(var(--spacing) / 2);
 
-	--gutter: var(--spacing);
+	--gutter: clamp(var(--spacing-050), 3vw, var(--spacing-2));
 
-	--max-width: 1200px;
+	--max-width: 1600px;
 	--align-wide: 960px;
 	--max-content-width: calc(620px + (var(--gutter) * 2));
 
 	--border-radius: 5px;
-
-	@media (--small-viewport) {
-
-		--spacing: 1rem;
-	}
 
 	--speed: 0.3s;
 	--radius: 3px;

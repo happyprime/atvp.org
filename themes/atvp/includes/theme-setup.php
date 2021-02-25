@@ -266,7 +266,7 @@ function enqueue_assets() {
 		"navigation.init( {
 			menu: document.getElementById( 'primary-menu' ),
 			toggle: document.querySelector( '.menu-toggle' ),
-		} );",
+		} );"
 	);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -67,8 +67,10 @@
 
 .alignfull,
 * > .alignfull {
-	width: 100vw;
-	max-width: 100vw;
+	width: calc(100% + (var(--gutter) * 2));
+	max-width: calc(100% + (var(--gutter) * 2));
+	margin-left: calc(var(--gutter) * -1);
+	margin-right: calc(var(--gutter) * -1);
 
 	.aligncenter {
 		margin-left: auto;
@@ -130,8 +132,8 @@
 
 /* --- Background colors --- */
 .has-background {
-	margin-bottom: var(--spacing-looser);
-	margin-top: var(--spacing-looser);
+	margin-bottom: var(--spacing-4);
+	margin-top: var(--spacing-4);
 	padding: var(--spacing) var(--gutter);
 }
 

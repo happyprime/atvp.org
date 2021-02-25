@@ -35,18 +35,18 @@
 				<p class="site-description"><?php echo $atvp_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" hidden><?php esc_html_e( 'Primary Menu', 'atvp' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-					'container'      => '',
-					'fallback_cb'    => false,
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+	<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle" hidden><?php esc_html_e( 'Menu', 'atvp' ); ?></button>
+		<?php
+		wp_nav_menu(
+			array(
+				'theme_location' => 'menu-1',
+				'menu_id'        => 'primary-menu',
+				'container'      => '',
+				'fallback_cb'    => false,
+			)
+		);
+		?>
+	</nav><!-- #site-navigation -->
