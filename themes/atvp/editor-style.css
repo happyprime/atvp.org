@@ -612,9 +612,9 @@ input[type="submit"] {
 	max-width: var(--max-content-width);
 }
 
-.home .entry-header > *:not(.alignfull), .home .entry-content > * > *:not(.alignfull) {
-			margin-left: auto;
-		}
+.home:not(.primary-menu-open) .entry-content > :not(.alignfull) {
+	margin-left: auto;
+}
 
 /*--------------------------------------------------------------
   # Accessibility

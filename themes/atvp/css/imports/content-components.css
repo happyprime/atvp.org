@@ -5,11 +5,8 @@
 .entry-content > * {
 	margin-right: auto;
 	max-width: var(--max-content-width);
+}
 
-	.home & {
-
-		> *:not(.alignfull) {
-			margin-left: auto;
-		}
-	}
+.home:not(.primary-menu-open) .entry-content > :not(.alignfull) {
+	margin-left: auto;
 }
