@@ -602,8 +602,19 @@ input[type="submit"] {
 		}
 
 /*--------------------------------------------------------------
-  # Views, components, blocks
+	# Entry
 --------------------------------------------------------------*/
+
+.entry-header,
+.entry-content > * {
+	margin-right: auto;
+	max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+	max-width: var(--max-content-width);
+}
+
+.home .entry-header > *:not(.alignfull), .home .entry-content > * > *:not(.alignfull) {
+			margin-left: auto;
+		}
 
 /*--------------------------------------------------------------
   # Accessibility
