@@ -6,6 +6,7 @@
 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 	<svg
 		aria-labelledby="atvp-logo-title"
+		id="atvp-logo"
 		role="img"
 		viewBox="0 0 500 335.7"
 		xmlns="http://www.w3.org/2000/svg"
