@@ -32,10 +32,7 @@
 
 /* ----- Site Branding ----- */
 .site-branding {
-
-	img {
-		width: auto;
-	}
+	width: min(50vw, 300px);
 }
 
 /* ----- Main Navigation ----- */
