@@ -35,6 +35,10 @@
 	width: min(50vw, 300px);
 }
 
+.site-title {
+	margin: 0;
+}
+
 /* ----- Main Navigation ----- */
 .main-navigation {
 	border-right: 1px solid var(--color-primary-light);

@@ -2495,6 +2495,10 @@ input[type="submit"] {
 	width: min(50vw, 300px);
 }
 
+.site-title {
+	margin: 0;
+}
+
 /* ----- Main Navigation ----- */
 
 .main-navigation {
