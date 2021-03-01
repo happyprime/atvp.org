@@ -6,6 +6,7 @@
 	grid-template: ". header header ." ". nav main ." "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
 	max-width: var(--max-width);
 
 	@media (--mobile-nav) {

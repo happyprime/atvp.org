@@ -2453,6 +2453,7 @@ input[type="submit"] {
 	grid-template: ". header header ." ". nav main ." "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
 	max-width: 1600px;
 	max-width: var(--max-width)
 }
@@ -2855,6 +2856,38 @@ input[type="submit"] {
 .home:not(.primary-menu-open) .entry-content > :not(.alignfull) {
 	margin-left: auto;
 }
+
+/*--------------------------------------------------------------
+	# Home
+--------------------------------------------------------------*/
+
+.home .entry-header {
+		display: none;
+	}
+
+.get-help > div > * {
+		margin: 0.5rem 0 0;
+	}
+
+.get-help .wp-block-columns {
+		align-items: center;
+		margin-top: calc(1.5rem * 2);
+		margin-top: var(--spacing-2);
+	}
+
+@media (min-width: 600px) {
+
+		.get-help .wp-block-columns .wp-block-column {
+				margin: 0;
+				padding: 0 1.5rem;
+				padding: 0 var(--spacing)
+		}
+
+				.get-help .wp-block-columns .wp-block-column:first-child {
+					border-right: 1px solid hsl(30, 7%, 11%);
+					border-right: 1px solid var(--color-gray-dark);
+				}
+			}
 
 /*--------------------------------------------------------------
   # Accessibility
