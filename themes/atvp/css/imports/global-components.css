@@ -54,7 +54,7 @@ body {
 
 /* ----- Site Branding ----- */
 .site-branding {
-	width: min(50vw, 200px);
+	width: min(50vw, 250px);
 
 	.home & {
 		width: min(50vw, 300px);
@@ -265,7 +265,7 @@ body {
 --------------------------------------------------------------*/
 .site-main {
 	grid-area: main;
-	margin-top: clamp(var(--spacing), 5vw, var(--spacing-3));
+	margin-top: clamp(var(--spacing), 7.5vw, var(--spacing-4));
 
 	@media (--desktop-nav) {
 		padding-left: var(--gutter);

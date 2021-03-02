@@ -2526,7 +2526,7 @@ body {
 /* ----- Site Branding ----- */
 
 .site-branding {
-	width: min(50vw, 200px);
+	width: min(50vw, 250px);
 }
 
 .home .site-branding {
@@ -2789,8 +2789,8 @@ body {
 
 .site-main {
 	grid-area: main;
-	margin-top: clamp(1.5rem, 5vw, calc(1.5rem * 3));
-	margin-top: clamp(var(--spacing), 5vw, var(--spacing-3))
+	margin-top: clamp(1.5rem, 7.5vw, calc(1.5rem * 4));
+	margin-top: clamp(var(--spacing), 7.5vw, var(--spacing-4))
 }
 
 @media (min-width: 62.501em) {
@@ -3030,12 +3030,19 @@ body {
 --------------------------------------------------------------*/
 
 .alignwide {
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	max-width: 960px;
-	max-width: var(--align-wide);
+	margin-left: calc((clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) / 2) * -1);
+	margin-left: calc((var(--gutter) / 2) * -1);
+	width: calc(100% + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
+	width: calc(100% + var(--gutter));
+	max-width: calc(960px + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
+	max-width: calc(var(--align-wide) + var(--gutter));
 }
+
+.home .alignwide {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
 
 .alignfull {
 	width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
