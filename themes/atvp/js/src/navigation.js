@@ -107,7 +107,7 @@ import { __ } from '@wordpress/i18n';
 			}
 
 			// Create the toggle button.
-			const toggleButton = listItem.classList.contains( 'current-menu-ancestor' )
+			const toggleButton = ( listItem.classList.contains( 'current-menu-ancestor' ) || listItem.classList.contains( 'current-menu-item' ) )
 				? getSubMenuToggle( true )
 				: getSubMenuToggle();
 
