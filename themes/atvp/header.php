@@ -27,7 +27,11 @@
 	</header><!-- #masthead -->
 
 	<nav id="site-navigation" class="main-navigation">
-		<button class="menu-toggle" hidden><?php esc_html_e( 'Menu', 'atvp' ); ?></button>
+		<button class="menu-toggle" hidden>
+			<span class="icon-close"><?php ATVP\TemplateTags\svg( 'close' ); ?></span>
+			<span class="icon-menu"><?php ATVP\TemplateTags\svg( 'menu' ); ?></span>
+			<?php esc_html_e( 'Menu', 'atvp' ); ?>
+		</button>
 		<?php
 		wp_nav_menu(
 			array(
