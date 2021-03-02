@@ -304,6 +304,7 @@ function remove_core_block_library_styles() {
 function filter_primary_menu_css_class( $classes, $item, $args ) {
 	if ( 'primary-menu' === $args->menu_id ) {
 		$allowed_classes = array(
+			'current-menu-ancestor',
 			'current-menu-item',
 			'menu-item-has-children',
 		);
