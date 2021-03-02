@@ -25,7 +25,7 @@
 	--color-white: hsl(0, 0%, 100%);
 	--color-black: hsl(0, 0%, 0%);
 
-	--color-hover: var(--color-alternative);
+	--color-hover: var(--color-secondary);
 
 	--spacing: 1.5rem;
 	--spacing-150: calc(var(--spacing) * 1.5);
@@ -124,8 +124,9 @@ a {
 }
 
 a:hover {
-		color: var(--color-alternative);
+		color: hsl(177, 31%, 30%);
 		color: var(--color-hover);
+		text-decoration: none;
 	}
 
 strong {
@@ -217,8 +218,8 @@ body {
 	background-image: linear-gradient(180deg, hsl(246, 55%, 95%), hsl(0, 0%, 100%) 50vh);
 	background-image: linear-gradient(180deg, var(--color-primary-light), var(--color-white) 50vh);
 	background-attachment: fixed;
-	border-top: 6px solid hsl(36, 71%, 51%);
-	border-top: 6px solid var(--color-accent);
+	border-top: 6px solid hsl(246, 55%, 30%);
+	border-top: 6px solid var(--color-primary);
 }
 
 .site {
@@ -553,9 +554,12 @@ body {
 
 .site-main {
 	grid-area: main;
-	margin-top: clamp(1.5rem, 7.5vw, calc(1.5rem * 4));
-	margin-top: clamp(var(--spacing), 7.5vw, var(--spacing-4))
 }
+
+.home .site-main {
+		margin-top: clamp(1.5rem, 7.5vw, calc(1.5rem * 4));
+		margin-top: clamp(var(--spacing), 7.5vw, var(--spacing-4));
+	}
 
 @media (--desktop-nav) {
 
@@ -695,9 +699,25 @@ body {
 }
 
 .entry-header {
+	padding-top: clamp(1.5rem, 7.5vw, calc(1.5rem * 4));
+	padding-top: clamp(var(--spacing), 7.5vw, var(--spacing-4));
 	margin-bottom: clamp(1.5rem, 5vw, calc(1.5rem * 3));
 	margin-bottom: clamp(var(--spacing), 5vw, var(--spacing-3));
 }
+
+/*--------------------------------------------------------------
+	# Post thumbnail - featured image
+--------------------------------------------------------------*/
+
+@media (--larger-than-small-viewport) {
+
+.post-thumbnail {
+		float: right;
+		margin: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) 0 clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+		margin: var(--gutter) 0 var(--gutter) var(--gutter);
+		max-width: 50%
+}
+	}
 
 /*--------------------------------------------------------------
 	# Home

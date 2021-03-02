@@ -4,7 +4,7 @@
 body {
 	background-image: linear-gradient(180deg, var(--color-primary-light), var(--color-white) 50vh);
 	background-attachment: fixed;
-	border-top: 6px solid var(--color-accent);
+	border-top: 6px solid var(--color-primary);
 }
 
 .site {
@@ -265,7 +265,10 @@ body {
 --------------------------------------------------------------*/
 .site-main {
 	grid-area: main;
-	margin-top: clamp(var(--spacing), 7.5vw, var(--spacing-4));
+
+	.home & {
+		margin-top: clamp(var(--spacing), 7.5vw, var(--spacing-4));
+	}
 
 	@media (--desktop-nav) {
 		padding-left: var(--gutter);

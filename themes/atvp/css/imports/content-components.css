@@ -12,7 +12,20 @@
 }
 
 .entry-header {
+	padding-top: clamp(var(--spacing), 7.5vw, var(--spacing-4));
 	margin-bottom: clamp(var(--spacing), 5vw, var(--spacing-3));
+}
+
+/*--------------------------------------------------------------
+	# Post thumbnail - featured image
+--------------------------------------------------------------*/
+.post-thumbnail {
+
+	@media (--larger-than-small-viewport) {
+		float: right;
+		margin: var(--gutter) 0 var(--gutter) var(--gutter);
+		max-width: 50%;
+	}
 }
 
 /*--------------------------------------------------------------

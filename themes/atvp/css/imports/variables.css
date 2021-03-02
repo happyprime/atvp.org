@@ -24,7 +24,7 @@
 	--color-white: hsl(0, 0%, 100%);
 	--color-black: hsl(0, 0%, 0%);
 
-	--color-hover: var(--color-alternative);
+	--color-hover: var(--color-secondary);
 
 	--spacing: 1.5rem;
 	--spacing-150: calc(var(--spacing) * 1.5);
