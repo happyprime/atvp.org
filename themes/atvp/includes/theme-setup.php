@@ -253,11 +253,13 @@ function enqueue_assets() {
 	);
 	wp_style_add_data( 'atvp-style', 'rtl', 'replace' );
 
+	$navigation_asset_data = require_once dirname( __DIR__ ) . '/js/build/navigation.asset.php';
+
 	wp_enqueue_script(
 		'atvp-navigation',
-		get_template_directory_uri() . '/js/navigation.js',
-		array(),
-		\ATVP\Utilities\get_version(),
+		get_template_directory_uri() . '/js/build/navigation.js',
+		$navigation_asset_data['dependencies'],
+		$navigation_asset_data['version'],
 		true
 	);
 

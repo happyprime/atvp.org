@@ -1,3 +1,5 @@
+import { __ } from '@wordpress/i18n';
+
 ( ( root, factory ) => {
 	root.navigation = factory();
 } )( typeof self !== 'undefined' ? self : this, () => {
@@ -19,6 +21,10 @@
 		const defaults = {
 			menu: null,
 			toggle: null,
+			openMenuText: __( 'Open menu' ),
+			closeMenuText: __( 'Close menu' ),
+			openSubmenuText: __( 'Open sub-menu' ),
+			closeSubmenuText: __( 'Close sub-menu' ),
 		};
 
 		let property;
@@ -51,9 +57,7 @@
 
 		menuToggle.classList.add( 'js-menu-toggle' );
 		menuToggle.setAttribute( 'aria-expanded', 'false' );
-
-		// Revisit for translation/internationalization.
-		menuToggle.setAttribute( 'aria-label', 'Open menu' );
+		menuToggle.setAttribute( 'aria-label', settings.openMenuText );
 		menuToggle.hidden = false;
 	};
 
@@ -69,7 +73,7 @@
 	const getSubMenuToggle = ( expanded = false ) => {
 		const toggleButton = document.createElement( 'button' );
 		const ariaExpanded = ( expanded ) ? 'true' : 'false';
-		const ariaLabel = ( expanded ) ? 'Close sub-menu' : 'Open sub-menu';
+		const ariaLabel = ( expanded ) ? settings.closeSubmenuText : settings.openSubmenuText;
 
 		toggleButton.classList.add( 'submenu-toggle', 'js-sub-menu-toggle' );
 		toggleButton.setAttribute( 'aria-expanded', ariaExpanded );
@@ -143,9 +147,9 @@
 
 		if ( target.classList.contains( 'js-menu-toggle' ) ) {
 			// Revisit for translation/internationalization.
-			const label = ( 'Open menu' === target.getAttribute( 'aria-label' ) )
-				? 'Close menu'
-				: 'Open menu';
+			const label = ( settings.openMenuText === target.getAttribute( 'aria-label' ) )
+				? settings.closeMenuText
+				: settings.openMenuText;
 
 			toggle( target, expanded, label, settings.menu );
 
@@ -154,9 +158,9 @@
 
 		if ( target.classList.contains( 'js-sub-menu-toggle' ) ) {
 			// Revisit for translation/internationalization.
-			const label = ( 'Open sub-menu' === target.getAttribute( 'aria-label' ) )
-				? 'Close sub-menu'
-				: 'Open sub-menu';
+			const label = ( settings.openSubmenuText === target.getAttribute( 'aria-label' ) )
+				? settings.closeSubmenuText
+				: settings.openSubmenuText;
 
 			toggle( target, expanded, label, target.nextElementSibling );
 		}
