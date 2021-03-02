@@ -2704,13 +2704,12 @@ body {
 	}
 
 #primary-menu.js-menu ul {
-		display: none;
-		list-style: none
+		list-style: none;
 	}
 
-#primary-menu.js-menu ul.toggled-open {
-			display: block;
-		}
+#primary-menu.js-menu [aria-expanded="false"] + ul {
+		display: none;
+	}
 
 #primary-menu.js-menu li {
 		position: relative

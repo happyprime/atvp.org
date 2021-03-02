@@ -196,12 +196,11 @@ body {
 #primary-menu.js-menu {
 
 	ul {
-		display: none;
 		list-style: none;
+	}
 
-		&.toggled-open {
-			display: block;
-		}
+	[aria-expanded="false"] + ul {
+		display: none;
 	}
 
 	li {
