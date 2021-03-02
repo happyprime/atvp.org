@@ -58,10 +58,15 @@
   # Alignments
 --------------------------------------------------------------*/
 .alignwide {
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	max-width: var(--align-wide);
+	margin-left: calc((var(--gutter) / 2) * -1);
+	width: calc(100% + var(--gutter));
+	max-width: calc(var(--align-wide) + var(--gutter));
+
+	.home & {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
 }
 
 .alignfull {
