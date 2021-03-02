@@ -2558,6 +2558,8 @@ input[type="submit"] {
 	background-color: hsl(0, 0%, 100%);
 	background-color: var(--color-white);
 	border: 1px solid currentColor;
+	border-radius: 2px;
+	border-radius: var(--border-radius);
 	color: hsl(246, 55%, 30%);
 	color: var(--color-primary);
 	cursor: pointer;
