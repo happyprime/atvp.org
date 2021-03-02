@@ -2673,10 +2673,18 @@ body {
 #primary-menu ul {
 		margin: 0;
 		padding: 20px;
+		width: 100%;
+	}
+
+#primary-menu li {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 
 #primary-menu a {
 		display: block;
+		flex-grow: 1;
 		padding: 4px;
 		text-decoration: none;
 		transition: background-color 0.3s ease;
@@ -2712,25 +2720,17 @@ body {
 	}
 
 #primary-menu.js-menu li {
-		position: relative
+		position: relative;
 	}
 
-#primary-menu.js-menu li.menu-item-has-children a {
-			margin-right: 1.5em;
-		}
-
 #primary-menu.js-menu .submenu-toggle {
-		background: transparent url(assets/icon-down-chevron.svg) content-box center no-repeat;
+		background: transparent url(assets/icon-down-chevron.svg) center / 50% no-repeat;
 		border: none;
 		cursor: context-menu;
-		height: 1.5em;
 		opacity: 0.5;
-		padding: 0.25em;
-		position: absolute;
-		right: 0;
-		top: 6px;
+		padding: 0;
 		transition: all 0.15s ease;
-		width: 1.5em
+		width: 2em
 	}
 
 #primary-menu.js-menu .submenu-toggle:hover {
