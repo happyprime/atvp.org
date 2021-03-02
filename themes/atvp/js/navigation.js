@@ -61,15 +61,19 @@
 	 * Return a `button` element to use for toggling sub-menus.
 	 *
 	 * @private
+	 *
+	 * @param {boolean} expanded Whether the section is open by default
+	 *
+	 * @return {Object} toggleButton
 	 */
-	const getSubMenuToggle = () => {
+	const getSubMenuToggle = ( expanded = false ) => {
 		const toggleButton = document.createElement( 'button' );
+		const ariaExpanded = ( expanded ) ? 'true' : 'false';
+		const ariaLabel = ( expanded ) ? 'Close sub-menu' : 'Open sub-menu';
 
 		toggleButton.classList.add( 'submenu-toggle', 'js-sub-menu-toggle' );
-		toggleButton.setAttribute( 'aria-expanded', 'false' );
-
-		// Revisit for translation/internationalization.
-		toggleButton.setAttribute( 'aria-label', 'Open sub-menu' );
+		toggleButton.setAttribute( 'aria-expanded', ariaExpanded );
+		toggleButton.setAttribute( 'aria-label', ariaLabel );
 
 		return toggleButton;
 	};
@@ -90,10 +94,7 @@
 			return;
 		}
 
-		// Create the toggle button.
-		const toggleButton = getSubMenuToggle();
-
-		// Add a toggle button for each menu sub-menu.
+		// Add a toggle button for each sub-menu.
 		subMenus.forEach( ( submenu ) => {
 			const listItem = submenu.parentElement;
 
@@ -101,7 +102,12 @@
 				return;
 			}
 
-			listItem.insertBefore( toggleButton.cloneNode( true ), submenu );
+			// Create the toggle button.
+			const toggleButton = listItem.classList.contains( 'current-menu-ancestor' )
+				? getSubMenuToggle( true )
+				: getSubMenuToggle();
+
+			listItem.insertBefore( toggleButton, submenu );
 		} );
 
 		menu.classList.add( 'has-sub-menus', 'js-has-sub-menus' );
