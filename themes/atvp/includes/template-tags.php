@@ -156,9 +156,12 @@ function svg( $name, $echo = true, $group = 'ui', $size = 24 ) {
 		\ATVP_SVG_Icons::get_svg( $group, $name, $size ),
 		array(
 			'svg'  => array(
-				'class'   => true,
-				'xmlns'   => true,
-				'viewbox' => true,
+				'aria-hidden' => true,
+				'class'       => true,
+				'focusable'   => true,
+				'role'        => true,
+				'xmlns'       => true,
+				'viewbox'     => true,
 			),
 			'path' => array(
 				'fill' => true,
