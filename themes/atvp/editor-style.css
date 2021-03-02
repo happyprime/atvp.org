@@ -543,6 +543,14 @@ body {
 			}
 	}
 
+/* stylelint-disable no-descending-specificity */
+
+.current-menu-item > a {
+	font-weight: 700;
+}
+
+/* stylelint-enable no-descending-specificity */
+
 /*--------------------------------------------------------------
   # Main
 --------------------------------------------------------------*/
