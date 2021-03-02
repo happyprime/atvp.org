@@ -2449,10 +2449,20 @@ input[type="submit"] {
   # General layout
 --------------------------------------------------------------*/
 
+body {
+	background-image: linear-gradient(180deg, hsl(246, 55%, 95%), hsl(0, 0%, 100%) 50vh);
+	background-image: linear-gradient(180deg, var(--color-primary-light), var(--color-white) 50vh);
+	background-attachment: fixed;
+	border-top: 6px solid hsl(36, 71%, 51%);
+	border-top: 6px solid var(--color-accent);
+}
+
 .site {
+	background-color: hsl(0, 0%, 100%);
+	background-color: var(--color-white);
 	display: grid;
-	grid-template: ". header main ." ". nav main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
-	grid-template: ". header main ." ". nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+	grid-template: "header header main ." "nav nav main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+	grid-template: "header header main ." "nav nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	min-height: 100vh;
 	margin-left: auto;
 	margin-right: auto;
@@ -2462,13 +2472,13 @@ input[type="submit"] {
 }
 
 .home .site {
-		grid-template: ". header header ." ". main main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
-		grid-template: ". header header ." ". main main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+		grid-template: "header header header ." ". main main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+		grid-template: "header header header ." ". main main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	}
 
 .primary-menu-open .site {
-		grid-template: ". header header ." ". nav main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
-		grid-template: ". header header ." ". nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+		grid-template: "header header header ." "nav nav main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+		grid-template: "header header header ." "nav nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	}
 
 @media (max-width: 62.5em) {
@@ -2482,9 +2492,10 @@ input[type="submit"] {
 @media (min-width: 87.5em) {
 
 .site {
-		border: 1px solid hsl(246, 55%, 95%);
-		border: 1px solid var(--color-primary-light);
-		border-width: 0 1px
+		border-left: 1px solid hsl(246, 55%, 95%);
+		border-left: 1px solid var(--color-primary-light);
+		border-right: 1px solid hsl(246, 55%, 95%);
+		border-right: 1px solid var(--color-primary-light)
 }
 	}
 
