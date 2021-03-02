@@ -29,6 +29,7 @@
 	--spacing: 1.5rem;
 	--spacing-150: calc(var(--spacing) * 1.5);
 	--spacing-2: calc(var(--spacing) * 2);
+	--spacing-3: calc(var(--spacing) * 3);
 	--spacing-4: calc(var(--spacing) * 4);
 	--spacing-050: calc(var(--spacing) / 2);
 
