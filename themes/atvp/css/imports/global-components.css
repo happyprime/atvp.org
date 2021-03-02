@@ -169,10 +169,18 @@ body {
 	ul {
 		margin: 0;
 		padding: 20px;
+		width: 100%;
+	}
+
+	li {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 
 	a {
 		display: block;
+		flex-grow: 1;
 		padding: 4px;
 		text-decoration: none;
 		transition: background-color var(--speed) ease;
@@ -196,34 +204,25 @@ body {
 #primary-menu.js-menu {
 
 	ul {
-		display: none;
 		list-style: none;
+	}
 
-		&.toggled-open {
-			display: block;
-		}
+	[aria-expanded="false"] + ul {
+		display: none;
 	}
 
 	li {
 		position: relative;
-
-		&.menu-item-has-children a {
-			margin-right: 1.5em;
-		}
 	}
 
 	.submenu-toggle {
-		background: transparent url(assets/icon-down-chevron.svg) content-box center no-repeat;
+		background: transparent url(assets/icon-down-chevron.svg) center / 50% no-repeat;
 		border: none;
 		cursor: context-menu;
-		height: 1.5em;
 		opacity: 0.5;
-		padding: 0.25em;
-		position: absolute;
-		right: 0;
-		top: 6px;
+		padding: 0;
 		transition: all 0.15s ease;
-		width: 1.5em;
+		width: 2em;
 
 		&:hover {
 			opacity: 1;
