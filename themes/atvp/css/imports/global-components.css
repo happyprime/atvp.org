@@ -12,6 +12,11 @@
 	@media (--mobile-nav) {
 		grid-template: ". header ." ". main ." "footer footer footer" / var(--gutter) 1fr var(--gutter);
 	}
+
+	@media (--larger-than-max-width) {
+		border: 1px solid var(--color-primary-light);
+		border-width: 0 1px;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -33,7 +38,11 @@
 
 /* ----- Site Branding ----- */
 .site-branding {
-	width: min(50vw, 300px);
+	width: min(50vw, 200px);
+
+	.home & {
+		width: min(50vw, 300px);
+	}
 }
 
 .site-title {
@@ -72,11 +81,10 @@
 	font-family: var(--font-sans);
 	font-size: var(--font-size-smaller);
 	font-weight: 400;
-	margin: var(--spacing);
 	padding: var(--spacing-050);
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: var(--gutter);
+	top: var(--spacing);
 	transition: background-color var(--speed) ease;
 	width: max-content;
 	z-index: 2;
@@ -95,6 +103,8 @@
 }
 
 #primary-menu {
+	border-radius: var(--border-radius);
+	border-top: 3px solid var(--color-accent);
 	list-style: none;
 	padding: var(--spacing-050) var(--spacing-050) var(--spacing-2);
 	width: min(25vw, 300px);

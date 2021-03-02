@@ -28,17 +28,18 @@
 	--color-hover: var(--color-alternative);
 
 	--spacing: 1.5rem;
+	--spacing-150: calc(var(--spacing) * 1.5);
 	--spacing-2: calc(var(--spacing) * 2);
 	--spacing-4: calc(var(--spacing) * 4);
 	--spacing-050: calc(var(--spacing) / 2);
 
-	--gutter: clamp(var(--spacing-050), 3vw, var(--spacing-2));
+	--gutter: clamp(var(--spacing-050), 3vw, var(--spacing-150));
 
-	--max-width: 1600px;
+	--max-width: 1400px;
 	--align-wide: 960px;
 	--max-content-width: calc(620px + (var(--gutter) * 2));
 
-	--border-radius: 5px;
+	--border-radius: 2px;
 
 	--speed: 0.3s;
 	--radius: 3px;
@@ -183,7 +184,7 @@ input[type="submit"] {
 	background-color: var(--color-primary);
 	border: 2px solid hsl(246, 55%, 30%);
 	border: 2px solid var(--color-primary);
-	border-radius: 5px;
+	border-radius: 2px;
 	border-radius: var(--border-radius);
 	color: hsl(0, 0%, 100%);
 	color: var(--color-white);
@@ -213,20 +214,29 @@ input[type="submit"] {
 
 .site {
 	display: grid;
-	grid-template: ". header header ." ". nav main ." "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
+	grid-template: ". header header ." ". nav main ." "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 	grid-template: ". header header ." ". nav main ." "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
-	max-width: 1600px;
+	max-width: 1400px;
 	max-width: var(--max-width)
 }
 
 @media (--mobile-nav) {
 
 .site {
-		grid-template: ". header ." ". main ." "footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
+		grid-template: ". header ." ". main ." "footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 		grid-template: ". header ." ". main ." "footer footer footer" / var(--gutter) 1fr var(--gutter)
+}
+	}
+
+@media (--larger-than-max-width) {
+
+.site {
+		border: 1px solid hsl(246, 55%, 95%);
+		border: 1px solid var(--color-primary-light);
+		border-width: 0 1px
 }
 	}
 
@@ -257,8 +267,12 @@ input[type="submit"] {
 /* ----- Site Branding ----- */
 
 .site-branding {
-	width: min(50vw, 300px);
+	width: min(50vw, 200px);
 }
+
+.home .site-branding {
+		width: min(50vw, 300px);
+	}
 
 .site-title {
 	margin: 0;
@@ -304,13 +318,13 @@ input[type="submit"] {
 	font-family: var(--font-sans);
 	font-size: var(--font-size-smaller);
 	font-weight: 400;
-	margin: 1.5rem;
-	margin: var(--spacing);
 	padding: calc(1.5rem / 2);
 	padding: var(--spacing-050);
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+	right: var(--gutter);
+	top: 1.5rem;
+	top: var(--spacing);
 	transition: background-color 0.3s ease;
 	transition: background-color var(--speed) ease;
 	width: -webkit-max-content;
@@ -334,6 +348,10 @@ input[type="submit"] {
 	}
 
 #primary-menu {
+	border-radius: 2px;
+	border-radius: var(--border-radius);
+	border-top: 3px solid hsl(36, 71%, 51%);
+	border-top: 3px solid var(--color-accent);
 	list-style: none;
 	padding: calc(1.5rem / 2) calc(1.5rem / 2) calc(1.5rem * 2);
 	padding: var(--spacing-050) var(--spacing-050) var(--spacing-2);
@@ -488,7 +506,7 @@ input[type="submit"] {
 @media (--desktop-nav) {
 
 .site-main {
-		padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
+		padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 		padding-left: var(--gutter);
 }
 
@@ -497,7 +515,7 @@ input[type="submit"] {
 		}
 
 		.home.primary-menu-open .site-main {
-			padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
+			padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 			padding-left: var(--gutter);
 		}
 	}
@@ -613,11 +631,11 @@ input[type="submit"] {
 .entry-header,
 .entry-content > * {
 	margin-right: auto;
-	max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+	max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
 	max-width: var(--max-content-width);
 }
 
-.home:not(.primary-menu-open) .entry-content > :not(.alignfull) {
+.home .entry-content > :not(.alignfull) {
 	margin-left: auto;
 }
 
@@ -643,8 +661,8 @@ input[type="submit"] {
 
 		.get-help .wp-block-columns .wp-block-column {
 				margin: 0;
-				padding: 0 1.5rem;
-				padding: 0 var(--spacing)
+				padding: calc(1.5rem / 2) 1.5rem;
+				padding: var(--spacing-050) var(--spacing)
 		}
 
 				.get-help .wp-block-columns .wp-block-column:first-child {
@@ -724,20 +742,20 @@ input[type="submit"] {
 }
 
 .alignfull {
-	width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+	width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
 	width: calc(100% + (var(--gutter) * 2));
-	max-width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+	max-width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
 	max-width: calc(100% + (var(--gutter) * 2));
-	margin-left: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * -1);
+	margin-left: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * -1);
 	margin-left: calc(var(--gutter) * -1);
-	margin-right: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * -1);
+	margin-right: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * -1);
 	margin-right: calc(var(--gutter) * -1);
 }
 
 .alignfull .aligncenter {
 		margin-left: auto;
 		margin-right: auto;
-		max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+		max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
 		max-width: var(--max-content-width);
 	}
 
@@ -752,7 +770,7 @@ input[type="submit"] {
 .alignwider {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 1600px;
+	max-width: 1400px;
 	max-width: var(--max-width);
 }
 
@@ -811,7 +829,7 @@ input[type="submit"] {
 	margin-bottom: var(--spacing-4);
 	margin-top: calc(1.5rem * 4);
 	margin-top: var(--spacing-4);
-	padding: 1.5rem clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
+	padding: 1.5rem clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 	padding: var(--spacing) var(--gutter);
 }
 

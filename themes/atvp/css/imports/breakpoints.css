@@ -2,3 +2,4 @@
 @custom-media --desktop-nav (min-width: 62.501em);
 @custom-media --small-viewport (max-width: 44em);
 @custom-media --larger-than-small-viewport (min-width: 44.01em);
+@custom-media --larger-than-max-width (min-width: 87.5em);
