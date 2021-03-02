@@ -3,11 +3,10 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php \ATVP\TemplateTags\post_thumbnail(); ?>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
-
-	<?php \ATVP\TemplateTags\post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
