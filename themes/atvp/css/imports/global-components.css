@@ -26,7 +26,7 @@ body {
 	}
 
 	@media (--mobile-nav) {
-		grid-template: ". header ." ". main ." 1fr "footer footer footer" / var(--gutter) 1fr var(--gutter);
+		grid-template: "header header ." ". main ." 1fr "footer footer footer" / var(--gutter) 1fr var(--gutter);
 	}
 
 	@media (--larger-than-max-width) {

@@ -2485,8 +2485,8 @@ body {
 @media (max-width: 62.5em) {
 
 .site {
-		grid-template: ". header ." ". main ." 1fr "footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
-		grid-template: ". header ." ". main ." 1fr "footer footer footer" / var(--gutter) 1fr var(--gutter)
+		grid-template: "header header ." ". main ." 1fr "footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+		grid-template: "header header ." ". main ." 1fr "footer footer footer" / var(--gutter) 1fr var(--gutter)
 }
 	}
 
