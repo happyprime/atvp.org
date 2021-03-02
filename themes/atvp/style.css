@@ -2264,17 +2264,19 @@ p.wp-block-subhead {
 	--color-hover: var(--color-alternative);
 
 	--spacing: 1.5rem;
+	--spacing-150: calc(var(--spacing) * 1.5);
 	--spacing-2: calc(var(--spacing) * 2);
+	--spacing-3: calc(var(--spacing) * 3);
 	--spacing-4: calc(var(--spacing) * 4);
 	--spacing-050: calc(var(--spacing) / 2);
 
-	--gutter: clamp(var(--spacing-050), 3vw, var(--spacing-2));
+	--gutter: clamp(var(--spacing-050), 3vw, var(--spacing-150));
 
-	--max-width: 1600px;
+	--max-width: 1400px;
 	--align-wide: 960px;
 	--max-content-width: calc(620px + (var(--gutter) * 2));
 
-	--border-radius: 5px;
+	--border-radius: 2px;
 
 	--speed: 0.3s;
 	--radius: 3px;
@@ -2419,7 +2421,7 @@ input[type="submit"] {
 	background-color: var(--color-primary);
 	border: 2px solid hsl(246, 55%, 30%);
 	border: 2px solid var(--color-primary);
-	border-radius: 5px;
+	border-radius: 2px;
 	border-radius: var(--border-radius);
 	color: hsl(0, 0%, 100%);
 	color: var(--color-white);
@@ -2449,19 +2451,40 @@ input[type="submit"] {
 
 .site {
 	display: grid;
-	grid-template: ". header header ." ". nav main ." "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
-	grid-template: ". header header ." ". nav main ." "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+	grid-template: ". header main ." ". nav main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+	grid-template: ". header main ." ". nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+	min-height: 100vh;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 1600px;
-	max-width: var(--max-width)
+	position: relative;
+	max-width: 1400px;
+	max-width: var(--max-width);
 }
+
+.home .site {
+		grid-template: ". header header ." ". main main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+		grid-template: ". header header ." ". main main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+	}
+
+.primary-menu-open .site {
+		grid-template: ". header header ." ". nav main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+		grid-template: ". header header ." ". nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+	}
 
 @media (max-width: 62.5em) {
 
 .site {
-		grid-template: ". header ." ". main ." "footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
-		grid-template: ". header ." ". main ." "footer footer footer" / var(--gutter) 1fr var(--gutter)
+		grid-template: ". header ." ". main ." 1fr "footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+		grid-template: ". header ." ". main ." 1fr "footer footer footer" / var(--gutter) 1fr var(--gutter)
+}
+	}
+
+@media (min-width: 87.5em) {
+
+.site {
+		border: 1px solid hsl(246, 55%, 95%);
+		border: 1px solid var(--color-primary-light);
+		border-width: 0 1px
 }
 	}
 
@@ -2492,8 +2515,12 @@ input[type="submit"] {
 /* ----- Site Branding ----- */
 
 .site-branding {
-	width: min(50vw, 300px);
+	width: min(50vw, 200px);
 }
+
+.home .site-branding {
+		width: min(50vw, 300px);
+	}
 
 .site-title {
 	margin: 0;
@@ -2531,6 +2558,8 @@ input[type="submit"] {
 	background-color: hsl(0, 0%, 100%);
 	background-color: var(--color-white);
 	border: 1px solid currentColor;
+	border-radius: 2px;
+	border-radius: var(--border-radius);
 	color: hsl(246, 55%, 30%);
 	color: var(--color-primary);
 	cursor: pointer;
@@ -2539,20 +2568,48 @@ input[type="submit"] {
 	font-family: var(--font-sans);
 	font-size: var(--font-size-smaller);
 	font-weight: 400;
-	margin: 1.5rem;
-	margin: var(--spacing);
 	padding: calc(1.5rem / 2);
 	padding: var(--spacing-050);
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+	right: var(--gutter);
+	top: 1.5rem;
+	top: var(--spacing);
 	transition: background-color 0.3s ease;
 	transition: background-color var(--speed) ease;
 	width: -webkit-max-content;
 	width: -moz-max-content;
 	width: max-content;
 	z-index: 2
+
+	/* stylelint-disable function-url-quotes */
 }
+
+.menu-toggle::before {
+		content: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='UTF-8'?%3E%3Csvg width='28px' height='21px' viewBox='0 0 28 21' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Ehamburger%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='ATVP---normal-style-tile' transform='translate(-1121.000000, -58.000000)' stroke='%232A2275' stroke-width='3'%3E%3Cg id='Header' transform='translate(85.000000, -2.000000)'%3E%3Cg id='Menu' transform='translate(1038.000000, 60.000000)'%3E%3Cg id='hamburger' transform='translate(0.000000, 1.000000)'%3E%3Cline x1='0.387096774' y1='18.5' x2='23.6129032' y2='18.5' id='Line'%3E%3C/line%3E%3Cline x1='0.387096774' y1='9.5' x2='23.6129032' y2='9.5' id='Line'%3E%3C/line%3E%3Cline x1='0.387096774' y1='0.5' x2='23.6129032' y2='0.5' id='Line'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+		content: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='UTF-8'?%3E%3Csvg width='28px' height='21px' viewBox='0 0 28 21' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Ehamburger%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='ATVP---initial-style-tile' transform='translate(-1121.000000, -58.000000)' stroke='%232A2275' stroke-width='3'%3E%3Cg id='Header' transform='translate(85.000000, -2.000000)'%3E%3Cg id='Menu' transform='translate(1038.000000, 60.000000)'%3E%3Cg id='hamburger' transform='translate(0.000000, 1.000000)'%3E%3Cline x1='0.387096774' y1='18.5' x2='23.6129032' y2='18.5' id='Line'%3E%3C/line%3E%3Cline x1='0.387096774' y1='9.5' x2='23.6129032' y2='9.5' id='Line'%3E%3C/line%3E%3Cline x1='0.387096774' y1='0.5' x2='23.6129032' y2='0.5' id='Line'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+		align-self: center;
+		display: flex;
+		height: 14px;
+		margin-right: -3px;
+	}
+
+.menu-toggle:hover::before {
+		content: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='UTF-8'?%3E%3Csvg width='28px' height='21px' viewBox='0 0 28 21' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Ehamburger%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='ATVP---normal-style-tile' transform='translate(-1121.000000, -58.000000)' stroke='%23ffffff' stroke-width='3'%3E%3Cg id='Header' transform='translate(85.000000, -2.000000)'%3E%3Cg id='Menu' transform='translate(1038.000000, 60.000000)'%3E%3Cg id='hamburger' transform='translate(0.000000, 1.000000)'%3E%3Cline x1='0.387096774' y1='18.5' x2='23.6129032' y2='18.5' id='Line'%3E%3C/line%3E%3Cline x1='0.387096774' y1='9.5' x2='23.6129032' y2='9.5' id='Line'%3E%3C/line%3E%3Cline x1='0.387096774' y1='0.5' x2='23.6129032' y2='0.5' id='Line'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+		content: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='UTF-8'?%3E%3Csvg width='28px' height='21px' viewBox='0 0 28 21' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Ehamburger%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3E%3Cg id='ATVP---initial-style-tile' transform='translate(-1121.000000, -58.000000)' stroke='%23ffffff' stroke-width='3'%3E%3Cg id='Header' transform='translate(85.000000, -2.000000)'%3E%3Cg id='Menu' transform='translate(1038.000000, 60.000000)'%3E%3Cg id='hamburger' transform='translate(0.000000, 1.000000)'%3E%3Cline x1='0.387096774' y1='18.5' x2='23.6129032' y2='18.5' id='Line'%3E%3C/line%3E%3Cline x1='0.387096774' y1='9.5' x2='23.6129032' y2='9.5' id='Line'%3E%3C/line%3E%3Cline x1='0.387096774' y1='0.5' x2='23.6129032' y2='0.5' id='Line'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+	}
+
+.menu-toggle {
+	/* stylelint-enable function-url-quotes */
+}
+
+.primary-menu-open .menu-toggle::before {
+			content: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='UTF-8'?%3E%3Csvg width='26px' height='23px' viewBox='0 0 26 23' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Eclose%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3E%3Cg id='close' transform='translate(1.000000, 1.000000)' stroke='%232A2275' stroke-width='2'%3E%3Cline x1='0.5' y1='0.5' x2='23.5' y2='20.5' id='Line-2'%3E%3C/line%3E%3Cline x1='0.5' y1='20.5' x2='23.5' y2='0.5' id='Line-3'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+		}
+
+.primary-menu-open .menu-toggle:hover::before {
+			content: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='UTF-8'?%3E%3Csvg width='26px' height='23px' viewBox='0 0 26 23' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Eclose%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3E%3Cg id='close' transform='translate(1.000000, 1.000000)' stroke='%23FFFFFF' stroke-width='2'%3E%3Cline x1='0.5' y1='0.5' x2='23.5' y2='20.5' id='Line-2'%3E%3C/line%3E%3Cline x1='0.5' y1='20.5' x2='23.5' y2='0.5' id='Line-3'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+		}
 
 @media (min-width: 62.501em) {
 
@@ -2569,6 +2626,10 @@ input[type="submit"] {
 	}
 
 #primary-menu {
+	border-radius: 2px;
+	border-radius: var(--border-radius);
+	border-top: 3px solid hsl(36, 71%, 51%);
+	border-top: 3px solid var(--color-accent);
 	list-style: none;
 	padding: calc(1.5rem / 2) calc(1.5rem / 2) calc(1.5rem * 2);
 	padding: var(--spacing-050) var(--spacing-050) var(--spacing-2);
@@ -2682,7 +2743,7 @@ input[type="submit"] {
 		display: none;
 		position: absolute;
 		left: 0;
-		top: 11rem
+		top: 10rem
 }
 
 		#primary-menu.js-menu.toggled-open {
@@ -2717,22 +2778,24 @@ input[type="submit"] {
 
 .site-main {
 	grid-area: main;
-	margin-top: var(-spacing)
+	margin-top: clamp(1.5rem, 5vw, calc(1.5rem * 3));
+	margin-top: clamp(var(--spacing), 5vw, var(--spacing-3))
 }
 
 @media (min-width: 62.501em) {
 
 .site-main {
-		padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
+		padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 		padding-left: var(--gutter);
 }
 
 		.home .site-main {
+			margin-top: 0;
 			padding-left: 0;
 		}
 
 		.home.primary-menu-open .site-main {
-			padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
+			padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 			padding-left: var(--gutter);
 		}
 	}
@@ -2848,13 +2911,50 @@ input[type="submit"] {
 .entry-header,
 .entry-content > * {
 	margin-right: auto;
-	max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+	max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
 	max-width: var(--max-content-width);
 }
 
-.home:not(.primary-menu-open) .entry-content > :not(.alignfull) {
+.home .entry-content > :not(.alignfull) {
 	margin-left: auto;
 }
+
+.entry-header {
+	margin-bottom: clamp(1.5rem, 5vw, calc(1.5rem * 3));
+	margin-bottom: clamp(var(--spacing), 5vw, var(--spacing-3));
+}
+
+/*--------------------------------------------------------------
+	# Home
+--------------------------------------------------------------*/
+
+.home .entry-header {
+		display: none;
+	}
+
+.get-help > div > * {
+		margin: 0.5rem 0 0;
+	}
+
+.get-help .wp-block-columns {
+		align-items: center;
+		margin-top: calc(1.5rem * 2);
+		margin-top: var(--spacing-2);
+	}
+
+@media (min-width: 600px) {
+
+		.get-help .wp-block-columns .wp-block-column {
+				margin: 0;
+				padding: calc(1.5rem / 2) 1.5rem;
+				padding: var(--spacing-050) var(--spacing)
+		}
+
+				.get-help .wp-block-columns .wp-block-column:first-child {
+					border-right: 1px solid hsl(30, 7%, 11%);
+					border-right: 1px solid var(--color-gray-dark);
+				}
+			}
 
 /*--------------------------------------------------------------
   # Accessibility
@@ -2927,20 +3027,20 @@ input[type="submit"] {
 }
 
 .alignfull {
-	width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+	width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
 	width: calc(100% + (var(--gutter) * 2));
-	max-width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+	max-width: calc(100% + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
 	max-width: calc(100% + (var(--gutter) * 2));
-	margin-left: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * -1);
+	margin-left: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * -1);
 	margin-left: calc(var(--gutter) * -1);
-	margin-right: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * -1);
+	margin-right: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * -1);
 	margin-right: calc(var(--gutter) * -1);
 }
 
 .alignfull .aligncenter {
 		margin-left: auto;
 		margin-right: auto;
-		max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2)) * 2));
+		max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
 		max-width: var(--max-content-width);
 	}
 
@@ -2955,7 +3055,7 @@ input[type="submit"] {
 .alignwider {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 1600px;
+	max-width: 1400px;
 	max-width: var(--max-width);
 }
 
@@ -3014,7 +3114,7 @@ input[type="submit"] {
 	margin-bottom: var(--spacing-4);
 	margin-top: calc(1.5rem * 4);
 	margin-top: var(--spacing-4);
-	padding: 1.5rem clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 2));
+	padding: 1.5rem clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 	padding: var(--spacing) var(--gutter);
 }
 
