@@ -10,6 +10,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\set_content_width', 0 );
 add_action( 'widgets_init', __NAMESPACE__ . '\widgets_init' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\remove_core_block_library_styles', 9999 );
+add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_block_editor_assets' );
 add_filter( 'nav_menu_css_class', __NAMESPACE__ . '\filter_primary_menu_css_class', 10, 3 );
 add_filter( 'nav_menu_item_id', __NAMESPACE__ . '\remove_nav_menu_item_id' );
 
@@ -294,6 +295,21 @@ function enqueue_assets() {
 function remove_core_block_library_styles() {
 	wp_dequeue_style( 'wp-block-library' );
 	wp_deregister_style( 'wp-block-library' );
+}
+
+/**
+ * Enqueue assets for the block editor.
+ */
+function enqueue_block_editor_assets() {
+	$asset_data = require_once dirname( __DIR__ ) . '/js/build/block-styles.asset.php';
+
+	wp_enqueue_script(
+		'atvp-block-styles',
+		get_stylesheet_directory_uri() . '/js/build/block-styles.js',
+		$asset_data['dependencies'],
+		$asset_data['version'],
+		true
+	);
 }
 
 /**
