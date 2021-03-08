@@ -2264,11 +2264,14 @@ p.wp-block-subhead {
 	--color-hover: var(--color-secondary);
 
 	--spacing: 1.5rem;
+
+	--spacing-050: calc(var(--spacing) / 2);
+	--spacing-1: var(--spacing);
 	--spacing-150: calc(var(--spacing) * 1.5);
 	--spacing-2: calc(var(--spacing) * 2);
 	--spacing-3: calc(var(--spacing) * 3);
 	--spacing-4: calc(var(--spacing) * 4);
-	--spacing-050: calc(var(--spacing) / 2);
+	--spacing-6: calc(var(--spacing) * 6);
 
 	--gutter: clamp(var(--spacing-050), 3vw, var(--spacing-150));
 
@@ -2990,6 +2993,60 @@ body {
 			}
 
 /*--------------------------------------------------------------
+	# Blocks
+--------------------------------------------------------------*/
+
+/* --- Buttons --- */
+
+.wp-block-buttons {
+	/* stylelint-enable */
+}
+
+.wp-block-buttons .wp-block-button {
+		margin: calc(1.5rem / 2) clamp(calc(1.5rem * 2), 10vw, calc(1.5rem * 6)) calc(1.5rem / 2) 0;
+		margin: var(--spacing-050) clamp(var(--spacing-2), 10vw, var(--spacing-6)) var(--spacing-050) 0
+	}
+
+.wp-block-buttons .wp-block-button:last-child {
+			margin-right: 0;
+		}
+
+/*stylelint-disable */
+
+.wp-block-buttons .is-style-arrow-link .wp-block-button__link {
+		background-color: transparent;
+		border: none;
+		color: hsl(3, 75%, 43%);
+		color: var(--color-alert);
+		display: flex;
+		font-size: 1.5rem;
+		font-size: var(--font-size-medium);
+		font-weight: 700;
+		padding: 0
+	}
+
+.wp-block-buttons .is-style-arrow-link .wp-block-button__link:hover {
+			background-color: transparent;
+			text-decoration: underline;
+		}
+
+.wp-block-buttons .is-style-arrow-link .wp-block-button__link::after {
+			content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3E→%3C/title%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23BF231B' fill-rule='nonzero'/%3E%3C/svg%3E");
+			display: inline-block;
+			margin: 0.1em 0 0 0.25em;
+			width: 0.75em;
+		}
+
+.has-color-white-color .wp-block-buttons .is-style-arrow-link .wp-block-button__link {
+			color: hsl(0, 0%, 100%);
+			color: var(--color-white)
+		}
+
+.has-color-white-color .wp-block-buttons .is-style-arrow-link .wp-block-button__link::after {
+				content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3E→%3C/title%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23ffffff' fill-rule='nonzero'/%3E%3C/svg%3E");
+			}
+
+/*--------------------------------------------------------------
   # Accessibility
 --------------------------------------------------------------*/
 
@@ -3101,6 +3158,7 @@ body {
 
 .is-content-justification-center {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 }
 
