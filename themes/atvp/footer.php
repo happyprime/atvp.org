@@ -39,6 +39,7 @@
 		</nav>
 
 		<div class="site-info">
+			<span class="site-copy">&copy; <?php bloginfo( 'name' ); ?> | </span>
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'atvp' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
