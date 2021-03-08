@@ -5,26 +5,38 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
+		<h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
+		<div class="site-company">
+			<?php dynamic_sidebar( 'footer-organization' ); ?>
+		</div>
 
-		<?php if ( has_nav_menu( 'social' ) ) : ?>
-			<nav class="social-menu">
-				<ul class="social-menu-wrapper">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'social',
-							'items_wrap'     => '%3$s',
-							'container'      => false,
-							'depth'          => 1,
-							'link_before'    => '<span>',
-							'link_after'     => '</span>',
-							'fallback_cb'    => false,
-						)
-					);
-					?>
-				</ul>
-			</nav>
-		<?php endif; ?>
+		<nav class="footer-nav">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'footer-menu',
+				)
+			);
+			?>
+			<?php if ( has_nav_menu( 'social' ) ) : ?>
+			<ul class="social-menu-wrapper menu">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'social',
+						'items_wrap'     => '%3$s',
+						'container'      => false,
+						'depth'          => 1,
+						'link_before'    => '<span>',
+						'link_after'     => '</span>',
+						'fallback_cb'    => false,
+					)
+				);
+				?>
+			</ul>
+			<?php endif; ?>
+		</nav>
 
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'atvp' ) ); ?>">
