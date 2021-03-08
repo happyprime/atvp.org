@@ -45,6 +45,7 @@ function setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'atvp' ),
+			'menu-2' => esc_html__( 'Footer', 'atvp' ),
 			'social' => esc_html__( 'Social Media', 'atvp' ),
 		)
 	);
@@ -231,13 +232,13 @@ function set_content_width() {
 function widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'atvp' ),
-			'id'            => 'sidebar-1',
+			'name'          => esc_html__( 'Footer contact', 'atvp' ),
+			'id'            => 'footer-organization',
 			'description'   => esc_html__( 'Add widgets here.', 'atvp' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<h3 class="location">',
+			'after_title'   => '</h3>',
 		)
 	);
 }
