@@ -240,8 +240,8 @@ body {
 }
 
 .home .site {
-		grid-template: "header header header ." ". main main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
-		grid-template: "header header header ." ". main main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+		grid-template: "header header header ." "nav main main ." 1fr "footer footer footer footer" / clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) auto 1fr clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
+		grid-template: "header header header ." "nav main main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	}
 
 .primary-menu-open .site {
