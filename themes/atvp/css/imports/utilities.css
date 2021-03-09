@@ -141,8 +141,8 @@
 
 /* --- Background colors --- */
 .has-background {
-	margin-bottom: var(--spacing-4);
-	margin-top: var(--spacing-4);
+	margin-top: var(--spacing-2);
+	margin-bottom: var(--spacing-2);
 	padding: var(--spacing) var(--gutter);
 }
 
@@ -233,4 +233,32 @@
 
 .has-color-black-color {
 	color: var(--color-black);
+}
+
+/*--------------------------------------------------------------
+  # Top margins
+--------------------------------------------------------------*/
+.has-zero-margin-top {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.has-small-margin-top {
+	margin-top: var(--spacing);
+	margin-bottom: 0;
+}
+
+.has-medium-margin-top {
+	margin-top: var(--spacing-2);
+	margin-bottom: 0;
+}
+
+.has-large-margin-top {
+	margin-top: var(--spacing-4);
+	margin-bottom: 0;
+}
+
+.has-larger-margin-top {
+	margin-top: var(--spacing-6);
+	margin-bottom: 0;
 }
