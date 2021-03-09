@@ -2380,22 +2380,15 @@ figcaption {
 
 /* --- Links --- */
 
+:focus {
+	outline: 2px dotted hsl(246, 55%, 30%);
+	outline: 2px dotted var(--color-primary);
+}
+
 .site-content a,
 .site-footer a {
 	color: hsl(177, 31%, 30%);
 	color: var(--color-secondary);
-}
-
-.site-content a:hover,
-.site-footer a:hover {
-	color: hsl(30, 7%, 34%);
-	color: var(--color-gray);
-}
-
-.site-content a:focus,
-.site-footer a:focus {
-	outline: 1px solid hsl(246, 55%, 30%);
-	outline: 1px solid var(--color-primary);
 }
 
 /*--- Form elements ---*/
@@ -2407,16 +2400,6 @@ figcaption {
 /*--- Buttons ---*/
 
 /* stylelint-disable */
-
-.is-style-outline .wp-block-button__link {
-	color: hsl(177, 31%, 30%);
-	color: var(--color-secondary)
-}
-
-.is-style-outline .wp-block-button__link:hover {
-		border-color: hsl(36, 71%, 51%);
-		border-color: var(--color-accent);
-	}
 
 .button,
 .wp-block-button__link,
@@ -2446,6 +2429,16 @@ input[type="submit"] {
 		color: hsl(0, 0%, 100%);
 		color: var(--color-white);
 	}
+
+.button:focus, .wp-block-button__link:focus, input[type="submit"]:focus {
+		outline: 3px dashed hsl(30, 7%, 11%);
+		outline: 3px dashed var(--color-gray-dark);
+		outline-offset: 4px;
+	}
+
+.is-style-arrow-link .wp-block-button__link:focus {
+	outline-color: currentColor;
+}
 
 /* stylelint-enable */
 
