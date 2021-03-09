@@ -1054,10 +1054,10 @@ body {
 /* --- Background colors --- */
 
 .has-background {
-	margin-bottom: calc(1.5rem * 4);
-	margin-bottom: var(--spacing-4);
-	margin-top: calc(1.5rem * 4);
-	margin-top: var(--spacing-4);
+	margin-top: calc(1.5rem * 2);
+	margin-top: var(--spacing-2);
+	margin-bottom: calc(1.5rem * 2);
+	margin-bottom: var(--spacing-2);
 	padding: 1.5rem clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 	padding: var(--spacing) var(--gutter);
 }
@@ -1172,4 +1172,37 @@ body {
 .has-color-black-color {
 	color: hsl(0, 0%, 0%);
 	color: var(--color-black);
+}
+
+/*--------------------------------------------------------------
+  # Top margins
+--------------------------------------------------------------*/
+
+.has-zero-margin-top {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.has-small-margin-top {
+	margin-top: 1.5rem;
+	margin-top: var(--spacing);
+	margin-bottom: 0;
+}
+
+.has-medium-margin-top {
+	margin-top: calc(1.5rem * 2);
+	margin-top: var(--spacing-2);
+	margin-bottom: 0;
+}
+
+.has-large-margin-top {
+	margin-top: calc(1.5rem * 4);
+	margin-top: var(--spacing-4);
+	margin-bottom: 0;
+}
+
+.has-larger-margin-top {
+	margin-top: calc(1.5rem * 6);
+	margin-top: var(--spacing-6);
+	margin-bottom: 0;
 }
