@@ -105,6 +105,11 @@
   # Typography
 --------------------------------------------------------------*/
 
+.has-small-font-size {
+	font-size: var(--font-size-small);
+	line-height: 1.65;
+}
+
 .has-normal-font-size {
 	font-size: var(--font-size-default);
 	line-height: 1.5;
