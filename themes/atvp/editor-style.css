@@ -266,6 +266,8 @@ body {
 
 .site-header {
 	grid-area: header;
+	margin-bottom: calc(1.5rem * 1.5);
+	margin-bottom: var(--spacing-150);
 	position: relative;
 	width: 100%
 }
@@ -301,20 +303,23 @@ body {
 /* ----- Main Navigation ----- */
 
 .main-navigation {
-	border-right: 1px solid hsl(246, 55%, 95%);
-	border-right: 1px solid var(--color-primary-light);
 	grid-area: nav;
-	margin-top: calc(1.5rem * 2);
-	margin-top: var(--spacing-2);
+	height: -webkit-max-content;
+	height: -moz-max-content;
+	height: max-content;
 }
 
 .home .main-navigation {
 		border-right: none;
 	}
 
-.home.primary-menu-open .main-navigation {
-		border-right: 1px solid hsl(246, 55%, 95%);
-		border-right: 1px solid var(--color-primary-light);
+@media (--desktop-nav) {
+
+.main-navigation {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0
+}
 	}
 
 /* Prevent the body from scrolling when the menu is toggled open. */
@@ -327,15 +332,17 @@ body {
 }
 
 .menu-toggle {
-	background-color: hsl(0, 0%, 100%);
-	background-color: var(--color-white);
-	border: 1px solid currentColor;
-	border-radius: 2px;
-	border-radius: var(--border-radius);
-	color: hsl(246, 55%, 30%);
-	color: var(--color-primary);
+	align-items: center;
+	background-color: hsl(246, 55%, 30%);
+	background-color: var(--color-primary);
+	border: 1px solid hsl(246, 55%, 30%);
+	border: 1px solid var(--color-primary);
+	border-radius: 0;
+	color: hsl(0, 0%, 100%);
+	color: var(--color-white);
 	cursor: pointer;
 	display: flex;
+	flex-direction: column;
 	font-family: "Source Sans Pro", sans-serif;
 	font-family: var(--font-sans);
 	font-size: var(--font-size-smaller);
@@ -343,10 +350,8 @@ body {
 	padding: calc(1.5rem / 2);
 	padding: var(--spacing-050);
 	position: absolute;
-	right: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
-	right: var(--gutter);
-	top: 1.5rem;
-	top: var(--spacing);
+	right: 0;
+	top: 0;
 	transition: background-color 0.3s ease;
 	transition: background-color var(--speed) ease;
 	width: -webkit-max-content;
@@ -357,8 +362,19 @@ body {
 
 @media (--desktop-nav) {
 
+		.home .menu-toggle {
+			right: 0;
+			top: 0;
+			transform: translateX(calc(100% - clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5))));
+			transform: translateX(calc(100% - var(--gutter)));
+		}
+
 		body:not(.home) .menu-toggle {
 			display: none;
+		}
+
+		.home.primary-menu-open .menu-toggle {
+			transform: translateX(100%);
 		}
 	}
 
@@ -372,8 +388,8 @@ body {
 .menu-toggle .icon-close,
 	.menu-toggle .icon-menu {
 		display: flex;
-		margin-right: 4px;
 		position: relative;
+		height: 20px;
 		width: 20px;
 
 		/* Allow button to engage when someone hits the icon */
@@ -393,10 +409,8 @@ body {
 		}
 
 #primary-menu {
-	border-radius: 2px;
-	border-radius: var(--border-radius);
-	border-top: 3px solid hsl(36, 71%, 51%);
-	border-top: 3px solid var(--color-accent);
+	border-top: 3px solid hsl(246, 55%, 30%);
+	border-top: 3px solid var(--color-primary);
 	list-style: none;
 	padding: calc(1.5rem / 2) calc(1.5rem / 2) calc(1.5rem * 2);
 	padding: var(--spacing-050) var(--spacing-050) var(--spacing-2);
@@ -407,8 +421,8 @@ body {
 @media (--mobile-nav) {
 
 #primary-menu {
-		border-color: hsl(246, 55%, 30%);
-		border-color: var(--color-primary);
+		border-top: 6px solid hsl(246, 55%, 30%);
+		border-top: 6px solid var(--color-primary);
 		box-shadow: 2px 2px 10px hsl(246, 55%, 95%);
 		box-shadow: 2px 2px 10px var(--color-primary-light);
 		height: 100vh;
@@ -507,9 +521,11 @@ body {
 		background-color: hsl(0, 0%, 100%);
 		background-color: var(--color-white);
 		display: none;
-		position: absolute;
+		max-height: 100vh;
+		overflow-y: scroll;
+		position: fixed;
 		left: 0;
-		top: 10rem
+		top: 0
 }
 
 		#primary-menu.js-menu.toggled-open {
@@ -552,8 +568,8 @@ body {
 
 .site-main {
 	grid-area: main;
-	margin-bottom: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2);
-	margin-bottom: calc(var(--gutter) * 2);
+	padding-bottom: calc(clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2);
+	padding-bottom: calc(var(--gutter) * 2);
 }
 
 .home .site-main {
@@ -564,16 +580,21 @@ body {
 @media (--desktop-nav) {
 
 .site-main {
+		border-left: 1px solid hsl(246, 55%, 95%);
+		border-left: 1px solid var(--color-primary-light);
 		padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 		padding-left: var(--gutter);
 }
 
 		.home .site-main {
+			border: none;
 			margin-top: 0;
 			padding-left: 0;
 		}
 
 		.home.primary-menu-open .site-main {
+			border-left: 1px solid hsl(246, 55%, 95%);
+			border-left: 1px solid var(--color-primary-light);
 			padding-left: clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
 			padding-left: var(--gutter);
 		}
