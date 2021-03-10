@@ -3,8 +3,8 @@
 :root {
 	--font-sans: "Source Sans Pro", sans-serif;
 
-	--font-size-small: 0.9rem;
-	--font-size-default: 1.125rem;
+	--font-size-small: 1rem;
+	--font-size-default: 1.25rem;
 	--font-size-medium: 1.5rem;
 	--font-size-large: clamp(1.5rem, 3vw, 2.25rem);
 	--font-size-larger: clamp(1.65rem, 4vw, 2.75rem);
@@ -54,7 +54,7 @@ body {
 	color: var(--color-gray-dark);
 	font-family: "Source Sans Pro", sans-serif;
 	font-family: var(--font-sans);
-	font-size: 1.125rem;
+	font-size: 1.25rem;
 	font-size: var(--font-size-default);
 	font-weight: 400;
 	line-height: 1.63;
@@ -73,8 +73,8 @@ h5 {
 }
 
 h1 {
-	font-size: clamp(1.65rem, 4vw, 2.75rem);
-	font-size: var(--font-size-larger);
+	font-size: clamp(2rem, 5vw, 3.75rem);
+	font-size: var(--font-size-huge);
 	margin-top: 0;
 }
 
@@ -92,13 +92,13 @@ h3 {
 }
 
 h4 {
-	font-size: 1.125rem;
+	font-size: 1.25rem;
 	font-size: var(--font-size-default);
 	font-weight: 700;
 }
 
 h5 {
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-size: var(--font-size-small);
 	font-weight: 700;
 	letter-spacing: 0.075em;
@@ -137,7 +137,7 @@ strong {
 }
 
 figcaption {
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-size: var(--font-size-small);
 	text-align: center;
 }
@@ -177,7 +177,7 @@ input[type="submit"] {
 	color: hsl(0, 0%, 100%);
 	color: var(--color-white);
 	cursor: pointer;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-size: var(--font-size-small);
 	padding: calc(1.5rem / 2) 1.5rem;
 	padding: var(--spacing-050) var(--spacing);
@@ -687,14 +687,14 @@ body {
 		}
 
 .site-footer .site-company .location {
-			font-size: 1.125rem;
+			font-size: 1.25rem;
 			font-size: var(--font-size-default);
 			letter-spacing: 0;
 			margin: 0;
 		}
 
 .site-footer .site-company p {
-			font-size: 0.9rem;
+			font-size: 1rem;
 			font-size: var(--font-size-small);
 			margin: 0 0 calc(1.5rem / 2);
 			margin: 0 0 var(--spacing-050);
@@ -709,7 +709,7 @@ body {
 .footer-nav .menu {
 		display: flex;
 		flex-wrap: wrap;
-		font-size: 1.125rem;
+		font-size: 1.25rem;
 		font-size: var(--font-size-default);
 		justify-content: right;
 		list-style: none;
@@ -756,7 +756,7 @@ body {
 	background-color: var(--color-white);
 	color: hsl(177, 31%, 30%);
 	color: var(--color-secondary);
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-size: var(--font-size-small);
 	grid-area: d;
 	margin: calc(1.5rem * 2) 0 0;
@@ -882,7 +882,7 @@ body {
 	}
 
 .wp-block-buttons .is-style-arrow-link {
-		font-size: 1.125rem;
+		font-size: 1.25rem;
 		font-size: var(--font-size-default);
 	}
 
@@ -1060,8 +1060,14 @@ body {
   # Typography
 --------------------------------------------------------------*/
 
+.has-small-font-size {
+	font-size: 1rem;
+	font-size: var(--font-size-small);
+	line-height: 1.65;
+}
+
 .has-normal-font-size {
-	font-size: 1.125rem;
+	font-size: 1.25rem;
 	font-size: var(--font-size-default);
 	line-height: 1.5;
 }
