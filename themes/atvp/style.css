@@ -2648,6 +2648,8 @@ body {
 	border-top: 3px solid hsl(246, 55%, 30%);
 	border-top: 3px solid var(--color-primary);
 	list-style: none;
+	height: 100vh;
+	overflow-y: scroll;
 	padding: calc(1.5rem / 2) calc(1.5rem / 2) calc(1.5rem * 2);
 	padding: var(--spacing-050) var(--spacing-050) var(--spacing-2);
 	width: min(25vw, 300px);
@@ -2757,8 +2759,6 @@ body {
 		background-color: hsl(0, 0%, 100%);
 		background-color: var(--color-white);
 		display: none;
-		max-height: 100vh;
-		overflow-y: scroll;
 		position: fixed;
 		left: 0;
 		top: 0

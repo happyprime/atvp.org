@@ -161,6 +161,8 @@ body {
 #primary-menu {
 	border-top: 3px solid var(--color-primary);
 	list-style: none;
+	height: 100vh;
+	overflow-y: scroll;
 	padding: var(--spacing-050) var(--spacing-050) var(--spacing-2);
 	width: min(25vw, 300px);
 	z-index: 1;
@@ -248,8 +250,6 @@ body {
 	@media (--mobile-nav) {
 		background-color: var(--color-white);
 		display: none;
-		max-height: 100vh;
-		overflow-y: scroll;
 		position: fixed;
 		left: 0;
 		top: 0;
