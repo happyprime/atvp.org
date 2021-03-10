@@ -351,9 +351,6 @@ body {
 	top: 0;
 	transition: background-color 0.3s ease;
 	transition: background-color var(--speed) ease;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
 	z-index: 2
 }
 
@@ -392,6 +389,10 @@ body {
 		/* Allow button to engage when someone hits the icon */
 		z-index: -1;
 	}
+
+.menu-toggle .icon-close svg, .menu-toggle .icon-menu svg {
+			height: 100%;
+		}
 
 .menu-toggle .icon-close {
 		display: none;

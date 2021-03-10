@@ -105,7 +105,6 @@ body {
 	right: 0;
 	top: 0;
 	transition: background-color var(--speed) ease;
-	width: max-content;
 	z-index: 2;
 
 	@media (--desktop-nav) {
@@ -139,6 +138,10 @@ body {
 
 		/* Allow button to engage when someone hits the icon */
 		z-index: -1;
+
+		svg {
+			height: 100%;
+		}
 	}
 
 	.icon-close {
