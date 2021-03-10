@@ -78,34 +78,59 @@
 	}
 
 	/*stylelint-disable */
-	.is-style-arrow-link .wp-block-button__link {
-		background-color: transparent;
-		border: none;
-		color: var(--color-alert);
-		display: flex;
-		font-size: var(--font-size-medium);
-		font-weight: 700;
-		padding: 0;
+	.wp-block-button__link {
+		font-size: inherit;
+	}
 
-		&:hover {
+	.is-style-arrow-link {
+		font-size: var(--font-size-default);
+
+		.quick-links & {
+			font-size: var(--font-size-medium);
+		}
+
+		.wp-block-button__link {
 			background-color: transparent;
-			text-decoration: underline;
-		}
+			border: none;
+			color: var(--color-alert);
+			display: flex;
+			font-weight: 700;
+			padding: 0;
 
-		&::after {
-			content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23BF231B' fill-rule='nonzero'/%3E%3C/svg%3E");
-			display: inline-block;
-			margin: 0.1em 0 0 0.25em;
-			width: 0.75em;
-		}
-
-		.has-color-white-color & {
-			color: var(--color-white);
+			&:hover {
+				background-color: transparent;
+				text-decoration: underline;
+			}
 
 			&::after {
-				content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23ffffff' fill-rule='nonzero'/%3E%3C/svg%3E");
+				content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23BF231B' fill-rule='nonzero'/%3E%3C/svg%3E");
+				display: inline-block;
+				margin: 0.1em 0 0 0.25em;
+				width: 0.75em;
+			}
+
+			.has-color-white-color & {
+				color: var(--color-white);
+
+				&::after {
+					content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23ffffff' fill-rule='nonzero'/%3E%3C/svg%3E");
+				}
 			}
 		}
 	}
 	/* stylelint-enable */
+}
+
+/* HR / Separator  */
+.wp-block-separator {
+	background-color: var(--color-primary-light);
+	border: none;
+	height: 2px;
+	margin: var(--spacing-2) 0;
+	width: 100%;
+	max-width: var(--max-content-width);
+
+	&.has-background {
+		padding: 0;
+	}
 }

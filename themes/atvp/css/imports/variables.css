@@ -9,7 +9,7 @@
 	--font-size-larger: clamp(1.65rem, 4vw, 2.75rem);
 	--font-size-huge: clamp(2rem, 5vw, 3.75rem);
 
-	--letter-spacing: 0.12em;
+	--letter-spacing: 0.075em;
 
 	--color-primary: hsl(246, 55%, 30%);
 	--color-primary-light: hsl(246, 55%, 95%);

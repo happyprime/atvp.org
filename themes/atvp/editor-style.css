@@ -10,7 +10,7 @@
 	--font-size-larger: clamp(1.65rem, 4vw, 2.75rem);
 	--font-size-huge: clamp(2rem, 5vw, 3.75rem);
 
-	--letter-spacing: 0.12em;
+	--letter-spacing: 0.075em;
 
 	--color-primary: hsl(246, 55%, 30%);
 	--color-primary-light: hsl(246, 55%, 95%);
@@ -87,7 +87,7 @@ h3 {
 	font-size: 1.5rem;
 	font-size: var(--font-size-medium);
 	font-weight: 700;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.075em;
 	letter-spacing: var(--letter-spacing);
 }
 
@@ -101,7 +101,7 @@ h5 {
 	font-size: 0.9rem;
 	font-size: var(--font-size-small);
 	font-weight: 700;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.075em;
 	letter-spacing: var(--letter-spacing);
 	margin-bottom: -0.5em;
 	text-transform: uppercase;
@@ -877,38 +877,68 @@ body {
 
 /*stylelint-disable */
 
-.wp-block-buttons .is-style-arrow-link .wp-block-button__link {
-		background-color: transparent;
-		border: none;
-		color: hsl(3, 75%, 43%);
-		color: var(--color-alert);
-		display: flex;
-		font-size: 1.5rem;
-		font-size: var(--font-size-medium);
-		font-weight: 700;
-		padding: 0
+.wp-block-buttons .wp-block-button__link {
+		font-size: inherit;
 	}
 
-.wp-block-buttons .is-style-arrow-link .wp-block-button__link:hover {
-			background-color: transparent;
-			text-decoration: underline;
+.wp-block-buttons .is-style-arrow-link {
+		font-size: 1.125rem;
+		font-size: var(--font-size-default);
+	}
+
+.quick-links .wp-block-buttons .is-style-arrow-link {
+			font-size: 1.5rem;
+			font-size: var(--font-size-medium);
 		}
+
+.wp-block-buttons .is-style-arrow-link .wp-block-button__link {
+			background-color: transparent;
+			border: none;
+			color: hsl(3, 75%, 43%);
+			color: var(--color-alert);
+			display: flex;
+			font-weight: 700;
+			padding: 0
+		}
+
+.wp-block-buttons .is-style-arrow-link .wp-block-button__link:hover {
+				background-color: transparent;
+				text-decoration: underline;
+			}
 
 .wp-block-buttons .is-style-arrow-link .wp-block-button__link::after {
-			content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23BF231B' fill-rule='nonzero'/%3E%3C/svg%3E");
-			display: inline-block;
-			margin: 0.1em 0 0 0.25em;
-			width: 0.75em;
-		}
+				content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23BF231B' fill-rule='nonzero'/%3E%3C/svg%3E");
+				display: inline-block;
+				margin: 0.1em 0 0 0.25em;
+				width: 0.75em;
+			}
 
 .has-color-white-color .wp-block-buttons .is-style-arrow-link .wp-block-button__link {
-			color: hsl(0, 0%, 100%);
-			color: var(--color-white)
-		}
+				color: hsl(0, 0%, 100%);
+				color: var(--color-white)
+			}
 
 .has-color-white-color .wp-block-buttons .is-style-arrow-link .wp-block-button__link::after {
-				content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23ffffff' fill-rule='nonzero'/%3E%3C/svg%3E");
-			}
+					content: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.692 13.432L13.412 7v-.096L6.692.472 4.772 2.68l3.12 2.64H.068v3.264h7.824l-3.12 2.64z' fill='%23ffffff' fill-rule='nonzero'/%3E%3C/svg%3E");
+				}
+
+/* HR / Separator  */
+
+.wp-block-separator {
+	background-color: hsl(246, 55%, 95%);
+	background-color: var(--color-primary-light);
+	border: none;
+	height: 2px;
+	margin: calc(1.5rem * 2) 0;
+	margin: var(--spacing-2) 0;
+	width: 100%;
+	max-width: calc(620px + (clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) * 2));
+	max-width: var(--max-content-width)
+}
+
+.wp-block-separator.has-background {
+		padding: 0;
+	}
 
 /*--------------------------------------------------------------
   # Accessibility
