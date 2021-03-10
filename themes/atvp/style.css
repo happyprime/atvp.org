@@ -4,7 +4,7 @@
  Description:  A WordPress theme for atvp.org
  Author:       Happy Prime
  Author URI:   https://happyprime.co
- Version:      0.0.1
+ Version:      0.0.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -3240,8 +3240,6 @@ body {
 --------------------------------------------------------------*/
 
 .alignwide {
-	margin-left: calc((clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)) / 2) * -1);
-	margin-left: calc((var(--gutter) / 2) * -1);
 	width: calc(100% + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
 	width: calc(100% + var(--gutter));
 	max-width: calc(960px + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
