@@ -16,5 +16,6 @@ module.exports = {
 	],
 	rules: {
 		'no-console': [ 'warn', { allow: [ 'error' ] } ],
+		'operator-linebreak': [ 'warn', 'before' ]
 	},
 };

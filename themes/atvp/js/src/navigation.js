@@ -21,10 +21,14 @@ import { __ } from '@wordpress/i18n';
 		const defaults = {
 			menu: null,
 			toggle: null,
-			openMenuText: __( 'Open menu' ),
-			closeMenuText: __( 'Close menu' ),
-			openSubmenuText: __( 'Open sub-menu' ),
-			closeSubmenuText: __( 'Close sub-menu' ),
+			menuLabel: {
+				open: __( 'Open menu' ),
+				close: __( 'Close menu' ),
+			},
+			submenuLabel: {
+				open: __( 'Open sub-menu' ),
+				close: __( 'Close sub-menu' ),
+			},
 		};
 
 		let property;
@@ -57,7 +61,7 @@ import { __ } from '@wordpress/i18n';
 
 		menuToggle.classList.add( 'js-menu-toggle' );
 		menuToggle.setAttribute( 'aria-expanded', 'false' );
-		menuToggle.setAttribute( 'aria-label', settings.openMenuText );
+		menuToggle.setAttribute( 'aria-label', settings.menuLabel.open );
 		menuToggle.hidden = false;
 	};
 
@@ -73,7 +77,7 @@ import { __ } from '@wordpress/i18n';
 	const getSubMenuToggle = ( expanded = false ) => {
 		const toggleButton = document.createElement( 'button' );
 		const ariaExpanded = ( expanded ) ? 'true' : 'false';
-		const ariaLabel = ( expanded ) ? settings.closeSubmenuText : settings.openSubmenuText;
+		const ariaLabel = ( expanded ) ? settings.submenuLabel.close : settings.submenuLabel.open;
 
 		toggleButton.classList.add( 'submenu-toggle', 'js-sub-menu-toggle' );
 		toggleButton.setAttribute( 'aria-expanded', ariaExpanded );
@@ -118,52 +122,39 @@ import { __ } from '@wordpress/i18n';
 	};
 
 	/**
-	 * Toggle attributes used for handling element display.
-	 *
-	 * @private
-	 * @param {Event}  target   The click event target.
-	 * @param {string} expanded The updated value for the `aria-expanded` attribute.
-	 * @param {string} label    The updated value for the `aria-label` attribute.
-	 * @param {Object} element  The element whose display is being toggled.
-	 */
-	const toggle = ( target, expanded, label, element ) => {
-		target.setAttribute( 'aria-expanded', expanded );
-		target.setAttribute( 'aria-label', label );
-
-		element.classList.toggle( 'toggled-open' );
-	};
-
-	/**
 	 * Handle click events.
 	 *
 	 * @private
 	 * @param {Event} event The click event.
 	 */
 	const clickHandler = ( event ) => {
-		const target = event.target;
-		const expanded = ( 'false' === target.getAttribute( 'aria-expanded' ) )
-			? 'true'
-			: 'false';
+		let target = event.target;
+		let label;
+		let elementToToggle;
 
-		if ( target.classList.contains( 'js-menu-toggle' ) ) {
-			// Revisit for translation/internationalization.
-			const label = ( settings.openMenuText === target.getAttribute( 'aria-label' ) )
-				? settings.closeMenuText
-				: settings.openMenuText;
-
-			toggle( target, expanded, label, settings.menu );
+		if ( target.classList.contains( 'js-sub-menu-toggle' ) ) {
+			label = settings.submenuLabel;
+			elementToToggle = target.nextElementSibling;
+		} else {
+			target = settings.toggle;
+			label = settings.menuLabel;
+			elementToToggle = settings.menu;
 
 			document.body.classList.toggle( `${ settings.menu.id }-open` );
 		}
 
-		if ( target.classList.contains( 'js-sub-menu-toggle' ) ) {
-			// Revisit for translation/internationalization.
-			const label = ( settings.openSubmenuText === target.getAttribute( 'aria-label' ) )
-				? settings.closeSubmenuText
-				: settings.openSubmenuText;
+		const expanded = ( 'false' === target.getAttribute( 'aria-expanded' ) )
+			? 'true'
+			: 'false';
 
-			toggle( target, expanded, label, target.nextElementSibling );
-		}
+		label = ( label.open === target.getAttribute( 'aria-label' ) )
+			? label.close
+			: label.open;
+
+		target.setAttribute( 'aria-expanded', expanded );
+		target.setAttribute( 'aria-label', label );
+
+		elementToToggle.classList.toggle( 'toggled-open' );
 	};
 
 	/**
@@ -212,8 +203,10 @@ import { __ } from '@wordpress/i18n';
 		addSubMenusToggles();
 
 		// Listen for click events on the navigation element.
-		settings.menu.addEventListener( 'click', clickHandler, false );
 		settings.toggle.addEventListener( 'click', clickHandler, false );
+		settings.menu.querySelectorAll( '.js-sub-menu-toggle' ).forEach( ( subMenuToggle ) => {
+			subMenuToggle.addEventListener( 'click', clickHandler, false );
+		} );
 	};
 
 	return navigation;
