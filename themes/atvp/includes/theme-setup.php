@@ -11,6 +11,7 @@ add_action( 'widgets_init', __NAMESPACE__ . '\widgets_init' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\remove_core_block_library_styles', 9999 );
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_block_editor_assets' );
+add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_block_assets' );
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -309,4 +310,73 @@ function enqueue_block_editor_assets() {
 		$asset_data['version'],
 		true
 	);
+}
+
+/**
+ * Enqueue block assets.
+ */
+function enqueue_block_assets() {
+	if ( is_admin() || ! has_block( 'core/list' ) ) {
+		return;
+	}
+
+	$blocks       = parse_blocks( get_post( get_the_ID() )->post_content );
+	$replacements = find_replacements( $blocks );
+
+	if ( $replacements ) {
+		wp_enqueue_script(
+			'atvp-icon-replacement',
+			get_stylesheet_directory_uri() . '/js/build/icon-replacement.js',
+			array(),
+			\ATVP\Utilities\get_version(),
+			true
+		);
+
+		wp_localize_script(
+			'atvp-icon-replacement',
+			'iconReplacementData',
+			$replacements
+		);
+	}
+}
+
+/**
+ * Parse all core/list blocks with the "Icon replacement" style.
+ *
+ * If the list contains a link to a social media platform that we
+ * have an icon for, push the SVG markup keyed by the URL to an
+ * array and return that array after all blocks are traversed.
+ *
+ * @param array $blocks       Blocks to parse for href values.
+ * @param array $replacements Social media icon SVG markup keyed by URL.
+ * @return array
+ */
+function find_replacements( $blocks, $replacements = array() ) {
+	foreach ( $blocks as $block ) {
+		if (
+			'core/list' === $block['blockName']
+			&& ! empty( $block['innerHTML'] )
+			&& isset( $block['attrs']['className'] )
+			&& false !== strpos( $block['attrs']['className'], 'is-style-icon-replacement' )
+		) {
+			$html_dom = new \DOMDocument();
+			$html_dom->loadHTML( $block['innerHTML'] );
+			$links = $html_dom->getElementsByTagName( 'a' );
+
+			foreach ( $links as $link ) {
+				$url = $link->getAttribute( 'href' );
+				$svg = \ATVP_SVG_Icons::get_social_link_svg( $url, 24 );
+
+				if ( $svg && ! in_array( $url, $replacements, true ) ) {
+					$replacements[ $url ] = $svg;
+				}
+			}
+		}
+
+		if ( $block['innerBlocks'] ) {
+			$replacements = find_replacements( $block['innerBlocks'], $replacements );
+		}
+	}
+
+	return $replacements;
 }
