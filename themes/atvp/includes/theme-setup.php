@@ -227,7 +227,7 @@ function set_content_width() {
 }
 
 /**
- * Register widget area.
+ * Register widget areas.
  */
 function widgets_init() {
 	register_sidebar(
@@ -239,6 +239,16 @@ function widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="location">',
 			'after_title'   => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Get Help bar', 'atvp' ),
+			'id'            => 'contact-bar',
+			'description'   => esc_html__( 'Add widgets here.', 'atvp' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
 		)
 	);
 }

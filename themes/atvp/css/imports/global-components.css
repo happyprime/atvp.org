@@ -10,7 +10,7 @@ body {
 .site {
 	background-color: var(--color-white);
 	display: grid;
-	grid-template: "header header main ." "nav nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+	grid-template: "header header toolbar toolbar" "header header main ." "nav nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	min-height: 100vh;
 	margin-left: auto;
 	margin-right: auto;
@@ -18,15 +18,15 @@ body {
 	max-width: var(--max-width);
 
 	.home & {
-		grid-template: "header header header ." "nav main main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+		grid-template: "header header toolbar toolbar" "nav main main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	}
 
 	.primary-menu-open & {
-		grid-template: "header header header ." "nav nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
+		grid-template: "header header toolbar toolbar" "nav nav main ." 1fr "footer footer footer footer" / var(--gutter) auto 1fr var(--gutter);
 	}
 
 	@media (--mobile-nav) {
-		grid-template: "header header ." "nav main ." 1fr "footer footer footer" / var(--gutter) 1fr var(--gutter);
+		grid-template: "toolbar header ." "nav main ." 1fr "footer footer footer" / var(--gutter) 1fr var(--gutter);
 	}
 
 	@media (--larger-than-max-width) {
@@ -164,6 +164,7 @@ body {
 	border-top: 3px solid var(--color-primary);
 	list-style: none;
 	height: 100vh;
+	margin-top: 0;
 	overflow-y: scroll;
 	padding: var(--spacing-050) var(--spacing-050) var(--spacing-2);
 	width: min(25vw, 300px);
@@ -281,6 +282,30 @@ body {
 	font-weight: 700;
 }
 /* stylelint-enable no-descending-specificity */
+
+/*--------------------------------------------------------------
+  # Contact bar
+--------------------------------------------------------------*/
+.contact-bar {
+	border-left: 1px solid var(--color-primary-light);
+	grid-area: toolbar;
+	margin-right: 1px;
+	position: sticky;
+	top: var(--spacing);
+
+	.home & {
+		border: none;
+	}
+
+	p {
+		background-color: var(--color-white);
+		border-radius: 0 0 0 var(--border-radius);
+		margin: 0 0 0 auto;
+		padding: var(--spacing-050) var(--spacing);
+		text-align: right;
+		max-width: max-content;
+	}
+}
 
 /*--------------------------------------------------------------
   # Main
