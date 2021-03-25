@@ -177,3 +177,27 @@
 		font-size: var(--font-size-small);
 	}
 }
+
+/*--------------------------------------------------------------
+	# Single
+--------------------------------------------------------------*/
+.single {
+
+	.entry-meta {
+		font-size: var(--font-size-small);
+	}
+
+	.updated {
+		display: none;
+	}
+
+	.entry-footer {
+		font-size: var(--font-size-small);
+	}
+}
+
+.nav-links {
+	border-top: 3px solid var(--color-gray-light);
+	margin-top: var(--spacing);
+	padding-top: var(--spacing);
+}

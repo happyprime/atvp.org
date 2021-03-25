@@ -3300,6 +3300,33 @@ body {
 	}
 
 /*--------------------------------------------------------------
+	# Single
+--------------------------------------------------------------*/
+
+.single .entry-meta {
+		font-size: 1rem;
+		font-size: var(--font-size-small);
+	}
+
+.single .updated {
+		display: none;
+	}
+
+.single .entry-footer {
+		font-size: 1rem;
+		font-size: var(--font-size-small);
+	}
+
+.nav-links {
+	border-top: 3px solid hsl(30, 7%, 95%);
+	border-top: 3px solid var(--color-gray-light);
+	margin-top: 1.5rem;
+	margin-top: var(--spacing);
+	padding-top: 1.5rem;
+	padding-top: var(--spacing);
+}
+
+/*--------------------------------------------------------------
   # Accessibility
 --------------------------------------------------------------*/
 
