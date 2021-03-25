@@ -25,6 +25,9 @@
 		<?php endif; ?>
 		</div><!-- .site-branding -->
 	</header><!-- #masthead -->
+	<div class="contact-bar">
+		<?php dynamic_sidebar( 'contact-bar' ); ?>
+	</div>
 
 	<nav id="site-navigation" class="main-navigation">
 		<button class="menu-toggle" hidden>
