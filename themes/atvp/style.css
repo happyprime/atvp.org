@@ -3271,7 +3271,7 @@ body {
 	# Archives
 --------------------------------------------------------------*/
 
-.archive .post + .post {
+.archive .post {
 		border-top: 3px solid hsl(246, 55%, 95%);
 		border-top: 3px solid var(--color-primary-light);
 		margin-top: calc(1.5rem * 2);
