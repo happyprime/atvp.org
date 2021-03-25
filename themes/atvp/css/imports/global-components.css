@@ -296,7 +296,7 @@ body {
 	grid-area: toolbar;
 	margin-right: 1px;
 	position: sticky;
-	top: var(--spacing);
+	top: 0;
 
 	@media (--mobile-nav) {
 		background-color: var(--color-white);

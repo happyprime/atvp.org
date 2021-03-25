@@ -2819,8 +2819,7 @@ body {
 	margin-right: 1px;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 1.5rem;
-	top: var(--spacing)
+	top: 0
 }
 
 @media (max-width: 62.5em) {
@@ -3255,6 +3254,17 @@ body {
 .wp-block-separator.has-background {
 		padding: 0;
 	}
+
+/*--------------------------------------------------------------
+	# Quicklinks
+--------------------------------------------------------------*/
+
+@media (max-width: 62.5em) {
+
+	.quick-links .is-content-justification-center {
+			justify-content: left
+	}
+		}
 
 /*--------------------------------------------------------------
   # Accessibility

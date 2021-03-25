@@ -134,3 +134,16 @@
 		padding: 0;
 	}
 }
+
+/*--------------------------------------------------------------
+	# Quicklinks
+--------------------------------------------------------------*/
+.quick-links {
+
+	.is-content-justification-center {
+
+		@media (--mobile-nav) {
+			justify-content: left;
+		}
+	}
+}

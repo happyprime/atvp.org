@@ -583,8 +583,7 @@ body {
 	margin-right: 1px;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 1.5rem;
-	top: var(--spacing)
+	top: 0
 }
 
 @media (--mobile-nav) {
@@ -1019,6 +1018,17 @@ body {
 .wp-block-separator.has-background {
 		padding: 0;
 	}
+
+/*--------------------------------------------------------------
+	# Quicklinks
+--------------------------------------------------------------*/
+
+@media (--mobile-nav) {
+
+	.quick-links .is-content-justification-center {
+			justify-content: left
+	}
+		}
 
 /*--------------------------------------------------------------
   # Accessibility
