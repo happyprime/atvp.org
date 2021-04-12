@@ -42,6 +42,14 @@ import { __ } from '@wordpress/i18n';
 		return defaults;
 	};
 
+	const setMarginBottomValue = () => {
+		const siteFooter = document.querySelector( '.site-footer' );
+
+		if ( siteFooter ) {
+			settings.menu.style.setProperty( '--margin-bottom', `${ siteFooter.offsetHeight }px` );
+		}
+	};
+
 	/**
 	 * Add a class to the menu element to leverage for progressive enhacement.
 	 *
@@ -49,6 +57,8 @@ import { __ } from '@wordpress/i18n';
 	 */
 	const updateMenu = () => {
 		settings.menu.classList.add( 'js-menu' );
+
+		setMarginBottomValue();
 	};
 
 	/**
@@ -169,8 +179,11 @@ import { __ } from '@wordpress/i18n';
 		}
 
 		// Remove event listeners.
-		settings.menu.removeEventListener( 'click', clickHandler, false );
 		settings.toggle.removeEventListener( 'click', clickHandler, false );
+		settings.menu.querySelectorAll( '.js-sub-menu-toggle' ).forEach( ( subMenuToggle ) => {
+			subMenuToggle.removeEventListener( 'click', clickHandler, false );
+		} );
+		window.removeEventListener( 'resize', setMarginBottomValue, false );
 
 		// Reset variables.
 		settings = null;
@@ -207,6 +220,8 @@ import { __ } from '@wordpress/i18n';
 		settings.menu.querySelectorAll( '.js-sub-menu-toggle' ).forEach( ( subMenuToggle ) => {
 			subMenuToggle.addEventListener( 'click', clickHandler, false );
 		} );
+
+		window.addEventListener( 'resize', setMarginBottomValue, false );
 	};
 
 	return navigation;
