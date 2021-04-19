@@ -515,7 +515,7 @@ pre {
 	  font-size: 0;
 	  min-height: inherit; }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
 		.wp-block-cover-image::after,
 		.wp-block-cover::after {
 		  content: none; } }
@@ -784,7 +784,7 @@ section.wp-block-cover-image > h2,
 		margin: 0;
 		height: 100%; }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
 		  .wp-block-gallery .blocks-gallery-image figure,
 		  .wp-block-gallery .blocks-gallery-item figure,
 		  .blocks-gallery-grid .blocks-gallery-image figure,
@@ -802,7 +802,7 @@ section.wp-block-cover-image > h2,
 		height: auto;
 		width: 100%; }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
 		  .wp-block-gallery .blocks-gallery-image img,
 		  .wp-block-gallery .blocks-gallery-item img,
 		  .blocks-gallery-grid .blocks-gallery-image img,
@@ -846,7 +846,7 @@ section.wp-block-cover-image > h2,
 	.blocks-gallery-grid.is-cropped .blocks-gallery-item img {
 	  width: 100%; }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
 		.wp-block-gallery.is-cropped .blocks-gallery-image a,
 		.wp-block-gallery.is-cropped .blocks-gallery-image img,
 		.wp-block-gallery.is-cropped .blocks-gallery-item a,
@@ -2040,7 +2040,7 @@ p.wp-block-subhead {
 .wp-block-video video {
 	  max-width: 100%; }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
 	  .wp-block-video [poster] {
 		-o-object-fit: cover;
 		   object-fit: cover; } }
@@ -2560,10 +2560,13 @@ body {
 @media (min-width: 62.501em) {
 
 .main-navigation {
-		position: -webkit-sticky;
 		position: sticky;
-		top: 0
+		top: 0;
 }
+
+		.admin-bar .main-navigation {
+			top: 32px;
+		}
 	}
 
 /* Prevent the body from scrolling when the menu is toggled open. */
@@ -2657,8 +2660,8 @@ body {
 	border-top: 3px solid hsl(246, 55%, 30%);
 	border-top: 3px solid var(--color-primary);
 	list-style: none;
-	height: 100vh;
-	margin-top: 0;
+	margin: 0 0 400px;
+	margin: 0 0 var(--margin-bottom, 400px);
 	overflow-y: scroll;
 	padding: calc(1.5rem / 2) calc(1.5rem / 2) calc(1.5rem * 2);
 	padding: var(--spacing-050) var(--spacing-050) var(--spacing-2);
@@ -2817,7 +2820,6 @@ body {
 	border-left: 1px solid var(--color-primary-light);
 	grid-area: toolbar;
 	margin-right: 1px;
-	position: -webkit-sticky;
 	position: sticky;
 	top: 0
 }
