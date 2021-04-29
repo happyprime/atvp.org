@@ -515,7 +515,7 @@ pre {
 	  font-size: 0;
 	  min-height: inherit; }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
 		.wp-block-cover-image::after,
 		.wp-block-cover::after {
 		  content: none; } }
@@ -784,7 +784,7 @@ section.wp-block-cover-image > h2,
 		margin: 0;
 		height: 100%; }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
 		  .wp-block-gallery .blocks-gallery-image figure,
 		  .wp-block-gallery .blocks-gallery-item figure,
 		  .blocks-gallery-grid .blocks-gallery-image figure,
@@ -802,7 +802,7 @@ section.wp-block-cover-image > h2,
 		height: auto;
 		width: 100%; }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
 		  .wp-block-gallery .blocks-gallery-image img,
 		  .wp-block-gallery .blocks-gallery-item img,
 		  .blocks-gallery-grid .blocks-gallery-image img,
@@ -846,7 +846,7 @@ section.wp-block-cover-image > h2,
 	.blocks-gallery-grid.is-cropped .blocks-gallery-item img {
 	  width: 100%; }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
 		.wp-block-gallery.is-cropped .blocks-gallery-image a,
 		.wp-block-gallery.is-cropped .blocks-gallery-image img,
 		.wp-block-gallery.is-cropped .blocks-gallery-item a,
@@ -2040,7 +2040,7 @@ p.wp-block-subhead {
 .wp-block-video video {
 	  max-width: 100%; }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
 	  .wp-block-video [poster] {
 		-o-object-fit: cover;
 		   object-fit: cover; } }
@@ -2560,6 +2560,7 @@ body {
 @media (min-width: 62.501em) {
 
 .main-navigation {
+		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
 }
@@ -2820,6 +2821,7 @@ body {
 	border-left: 1px solid var(--color-primary-light);
 	grid-area: toolbar;
 	margin-right: 1px;
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0
 }
@@ -2839,17 +2841,6 @@ body {
 		top: 0
 }
 	}
-
-.home .contact-bar {
-		border: none
-	}
-
-@media (max-width: 44em) {
-
-	.home .contact-bar {
-			display: none
-	}
-		}
 
 .contact-bar p {
 		background-color: hsl(0, 0%, 100%);
@@ -2875,6 +2866,82 @@ body {
 			max-width: 100%
 	}
 		}
+
+/*--- Widget text ---*/
+
+/* stylelint-disable selector-class-pattern */
+
+@media (max-width: 62.5em) {
+
+.widget_text {
+		padding-right: 80px
+}
+	}
+
+@media (max-width: 44em) {
+
+	.home .widget_text {
+			display: none
+	}
+		}
+
+/*--- Quick escape ---*/
+
+.widget_quick_escape {
+	color: hsl(0, 0%, 100%);
+	color: var(--color-white);
+	font-size: 1rem;
+	font-size: var(--font-size-small);
+	margin-left: auto;
+	margin-top: 1.5rem;
+	margin-top: var(--spacing);
+	text-align: center;
+	max-width: -webkit-max-content;
+	max-width: -moz-max-content;
+	max-width: max-content
+}
+
+@media (max-width: 62.5em) {
+
+.widget_quick_escape {
+		margin-top: -1px;
+		position: absolute;
+		right: 0;
+		top: 0
+}
+	}
+
+.widget_quick_escape .js-quick-escape {
+		align-items: center;
+		background-color: hsl(3, 75%, 43%);
+		background-color: var(--color-alert);
+		color: inherit;
+		display: flex;
+		flex-direction: column;
+		line-height: 1.25;
+		padding: 0.75rem 0.5rem 0.5rem;
+		text-decoration: none;
+		transition: background-color 0.3s ease-in-out;
+		transition: background-color var(--speed) ease-in-out;
+		max-width: 70px
+	}
+
+.widget_quick_escape .js-quick-escape::before {
+			/* stylelint-disable function-url-quotes */
+			content: url("data:image/svg+xml;charset=utf8,%3Csvg class='svg-icon' aria-hidden='true' role='img' focusable='false' viewBox='0 0 27 25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.9.8H3l10.5 9.7L24 .9A1.5 1.5 0 0126 3v.1l-10.4 9.4L26 21.9a1.5 1.5 0 01-1.9 2.3H24l-10.5-9.7L3 24.1A1.5 1.5 0 011 22v-.1l10.4-9.4L1 3.1A1.5 1.5 0 012.9.8z' fill='hsl(0, 0%, 100%)'%3E%3C/path%3E%3C/svg%3E");
+			/* stylelint-enable function-url-quotes */
+			height: 20px;
+			margin: 0 auto 0.25rem;
+			width: 20px;
+		}
+
+.widget_quick_escape .js-quick-escape:hover {
+			background-color: hsl(30, 7%, 11%);
+			background-color: var(--color-gray-dark);
+			color: inherit;
+		}
+
+/* stylelint-enable selector-class-pattern */
 
 /*--------------------------------------------------------------
   # Main
