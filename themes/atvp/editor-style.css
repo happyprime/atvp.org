@@ -324,7 +324,6 @@ body {
 @media (--desktop-nav) {
 
 .main-navigation {
-		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
 }
@@ -585,7 +584,6 @@ body {
 	border-left: 1px solid var(--color-primary-light);
 	grid-area: toolbar;
 	margin-right: 1px;
-	position: -webkit-sticky;
 	position: sticky;
 	top: 0
 }

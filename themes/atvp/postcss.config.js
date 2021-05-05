@@ -1,12 +1,10 @@
 module.exports = {
 	plugins: {
 		'postcss-import': {
-			plugins: [
-				require("stylelint"),
-			  ],
+			plugins: [ require( 'stylelint' ) ],
 		},
-		'precss': {},
-		'autoprefixer': {},
+		precss: {},
+		autoprefixer: {},
 		'postcss-custom-media': {},
-	}
+	},
 };
