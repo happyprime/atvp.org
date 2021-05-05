@@ -5,6 +5,9 @@
 # Ignore any node_modules directories.
 node_modules
 
+# Ignore db.php file created by Query Monitor.
+db.php
+
 # Ignore the entire theme directory.
 /themes/*
 
@@ -17,3 +20,9 @@ node_modules
 
 # But! Include the index file and any plugins we're tracking.
 /plugins/index.php
+
+# Ignore the entire mu-plugins directory.
+/mu-plugins/*
+
+# But! Include the index file and any mu-plugins we're tracking.
+/mu-plugins/index.php
