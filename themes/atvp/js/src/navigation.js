@@ -46,7 +46,10 @@ import { __ } from '@wordpress/i18n';
 		const siteFooter = document.querySelector( '.site-footer' );
 
 		if ( siteFooter ) {
-			settings.menu.style.setProperty( '--margin-bottom', `${ siteFooter.offsetHeight }px` );
+			settings.menu.style.setProperty(
+				'--margin-bottom',
+				`${ siteFooter.offsetHeight }px`
+			);
 		}
 	};
 
@@ -86,8 +89,10 @@ import { __ } from '@wordpress/i18n';
 	 */
 	const getSubMenuToggle = ( expanded = false ) => {
 		const toggleButton = document.createElement( 'button' );
-		const ariaExpanded = ( expanded ) ? 'true' : 'false';
-		const ariaLabel = ( expanded ) ? settings.submenuLabel.close : settings.submenuLabel.open;
+		const ariaExpanded = expanded ? 'true' : 'false';
+		const ariaLabel = expanded
+			? settings.submenuLabel.close
+			: settings.submenuLabel.open;
 
 		toggleButton.classList.add( 'submenu-toggle', 'js-sub-menu-toggle' );
 		toggleButton.setAttribute( 'aria-expanded', ariaExpanded );
@@ -121,9 +126,11 @@ import { __ } from '@wordpress/i18n';
 			}
 
 			// Create the toggle button.
-			const toggleButton = ( listItem.classList.contains( 'current-menu-ancestor' ) || listItem.classList.contains( 'current-menu-item' ) )
-				? getSubMenuToggle( true )
-				: getSubMenuToggle();
+			const toggleButton =
+				listItem.classList.contains( 'current-menu-ancestor' ) ||
+				listItem.classList.contains( 'current-menu-item' )
+					? getSubMenuToggle( true )
+					: getSubMenuToggle();
 
 			listItem.insertBefore( toggleButton, submenu );
 		} );
@@ -153,13 +160,15 @@ import { __ } from '@wordpress/i18n';
 			document.body.classList.toggle( `${ settings.menu.id }-open` );
 		}
 
-		const expanded = ( 'false' === target.getAttribute( 'aria-expanded' ) )
-			? 'true'
-			: 'false';
+		const expanded =
+			'false' === target.getAttribute( 'aria-expanded' )
+				? 'true'
+				: 'false';
 
-		label = ( label.open === target.getAttribute( 'aria-label' ) )
-			? label.close
-			: label.open;
+		label =
+			label.open === target.getAttribute( 'aria-label' )
+				? label.close
+				: label.open;
 
 		target.setAttribute( 'aria-expanded', expanded );
 		target.setAttribute( 'aria-label', label );
@@ -180,9 +189,15 @@ import { __ } from '@wordpress/i18n';
 
 		// Remove event listeners.
 		settings.toggle.removeEventListener( 'click', clickHandler, false );
-		settings.menu.querySelectorAll( '.js-sub-menu-toggle' ).forEach( ( subMenuToggle ) => {
-			subMenuToggle.removeEventListener( 'click', clickHandler, false );
-		} );
+		settings.menu
+			.querySelectorAll( '.js-sub-menu-toggle' )
+			.forEach( ( subMenuToggle ) => {
+				subMenuToggle.removeEventListener(
+					'click',
+					clickHandler,
+					false
+				);
+			} );
 		window.removeEventListener( 'resize', setMarginBottomValue, false );
 
 		// Reset variables.
@@ -217,9 +232,11 @@ import { __ } from '@wordpress/i18n';
 
 		// Listen for click events on the navigation element.
 		settings.toggle.addEventListener( 'click', clickHandler, false );
-		settings.menu.querySelectorAll( '.js-sub-menu-toggle' ).forEach( ( subMenuToggle ) => {
-			subMenuToggle.addEventListener( 'click', clickHandler, false );
-		} );
+		settings.menu
+			.querySelectorAll( '.js-sub-menu-toggle' )
+			.forEach( ( subMenuToggle ) => {
+				subMenuToggle.addEventListener( 'click', clickHandler, false );
+			} );
 
 		window.addEventListener( 'resize', setMarginBottomValue, false );
 	};
