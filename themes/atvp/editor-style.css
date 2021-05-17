@@ -324,6 +324,7 @@ body {
 @media (--desktop-nav) {
 
 .main-navigation {
+		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
 }
@@ -584,6 +585,7 @@ body {
 	border-left: 1px solid var(--color-primary-light);
 	grid-area: toolbar;
 	margin-right: 1px;
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0
 }
@@ -681,7 +683,8 @@ body {
 		display: flex;
 		flex-direction: column;
 		line-height: 1.25;
-		padding: 0.75rem 0.5rem 0.5rem;
+		padding: calc(1.5rem / 2);
+		padding: var(--spacing-050);
 		text-decoration: none;
 		transition: background-color 0.3s ease-in-out;
 		transition: background-color var(--speed) ease-in-out;

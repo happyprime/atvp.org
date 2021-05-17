@@ -367,7 +367,7 @@ body {
 		display: flex;
 		flex-direction: column;
 		line-height: 1.25;
-		padding: 0.75rem 0.5rem 0.5rem;
+		padding: var(--spacing-050);
 		text-decoration: none;
 		transition: background-color var(--speed) ease-in-out;
 		max-width: 70px;
