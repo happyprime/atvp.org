@@ -386,6 +386,13 @@ body {
 			color: inherit;
 		}
 	}
+
+	.qe-anchor:focus .qe-focus-title,
+	.qe-anchor:hover .qe-focus-title {
+		padding: var(--spacing-050);
+		top: 100%;
+		max-width: max-content;
+	}
 }
 /* stylelint-enable selector-class-pattern */
 

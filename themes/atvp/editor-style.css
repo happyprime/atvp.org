@@ -706,6 +706,16 @@ body {
 			color: inherit;
 		}
 
+.widget_quick_escape .qe-anchor:focus .qe-focus-title,
+	.widget_quick_escape .qe-anchor:hover .qe-focus-title {
+		padding: calc(1.5rem / 2);
+		padding: var(--spacing-050);
+		top: 100%;
+		max-width: -webkit-max-content;
+		max-width: -moz-max-content;
+		max-width: max-content;
+	}
+
 /* stylelint-enable selector-class-pattern */
 
 /*--------------------------------------------------------------
