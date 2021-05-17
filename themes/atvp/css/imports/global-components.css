@@ -389,8 +389,9 @@ body {
 
 	.qe-anchor:focus .qe-focus-title,
 	.qe-anchor:hover .qe-focus-title {
+		background-color: var(--color-white);
 		padding: var(--spacing-050);
-		top: 100%;
+		top: calc(100% + 2px);
 		max-width: max-content;
 	}
 }
