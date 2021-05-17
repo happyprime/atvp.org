@@ -310,6 +310,10 @@ body {
 		top: 0;
 	}
 
+	.home & {
+		border-left: none;
+	}
+
 	p {
 		background-color: var(--color-white);
 		border-radius: 0 0 0 var(--border-radius);

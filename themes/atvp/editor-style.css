@@ -606,6 +606,10 @@ body {
 }
 	}
 
+.home .contact-bar {
+		border-left: none;
+	}
+
 .contact-bar p {
 		background-color: hsl(0, 0%, 100%);
 		background-color: var(--color-white);
@@ -1102,6 +1106,18 @@ body {
 		padding: 0;
 	}
 
+/* Blockquote */
+
+.wp-block-quote {
+	font-size: 1.5rem;
+	font-size: var(--font-size-medium);
+	font-style: italic;
+}
+
+.wp-block-quote p {
+		line-height: 1.85;
+	}
+
 /*--------------------------------------------------------------
 	# Quicklinks
 --------------------------------------------------------------*/
@@ -1173,6 +1189,14 @@ body {
 }
 
 /*--------------------------------------------------------------
+	# 404 page
+--------------------------------------------------------------*/
+
+.error404 .entry-header {
+	text-align: left;
+}
+
+/*--------------------------------------------------------------
   # Accessibility
 --------------------------------------------------------------*/
 
@@ -1237,14 +1261,15 @@ body {
 .alignwide {
 	width: calc(100% + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
 	width: calc(100% + var(--gutter));
-	max-width: calc(960px + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
-	max-width: calc(var(--align-wide) + var(--gutter));
+	max-width: 100%;
 }
 
 .home .alignwide {
 		margin-left: auto;
 		margin-right: auto;
 		width: 100%;
+		max-width: calc(960px + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
+		max-width: calc(var(--align-wide) + var(--gutter));
 	}
 
 .alignfull {

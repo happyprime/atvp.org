@@ -136,6 +136,16 @@
 	}
 }
 
+/* Blockquote */
+.wp-block-quote {
+	font-size: var(--font-size-medium);
+	font-style: italic;
+
+	p {
+		line-height: 1.85;
+	}
+}
+
 /*--------------------------------------------------------------
 	# Quicklinks
 --------------------------------------------------------------*/
@@ -200,4 +210,11 @@
 	border-top: 3px solid var(--color-gray-light);
 	margin-top: var(--spacing);
 	padding-top: var(--spacing);
+}
+
+/*--------------------------------------------------------------
+	# 404 page
+--------------------------------------------------------------*/
+.error404 .entry-header {
+	text-align: left;
 }
