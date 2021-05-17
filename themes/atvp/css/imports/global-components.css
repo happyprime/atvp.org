@@ -310,11 +310,15 @@ body {
 		top: 0;
 	}
 
+	.home & {
+		border-left: none;
+	}
+
 	p {
 		background-color: var(--color-white);
 		border-radius: 0 0 0 var(--border-radius);
 		margin: 0 0 0 auto;
-		padding: var(--spacing-050) var(--gutter);
+		padding: var(--spacing-050);
 		text-align: right;
 		max-width: max-content;
 
@@ -367,7 +371,7 @@ body {
 		display: flex;
 		flex-direction: column;
 		line-height: 1.25;
-		padding: 0.75rem 0.5rem 0.5rem;
+		padding: var(--spacing-050);
 		text-decoration: none;
 		transition: background-color var(--speed) ease-in-out;
 		max-width: 70px;
@@ -385,6 +389,14 @@ body {
 			background-color: var(--color-gray-dark);
 			color: inherit;
 		}
+	}
+
+	.qe-anchor:focus .qe-focus-title,
+	.qe-anchor:hover .qe-focus-title {
+		background-color: var(--color-white);
+		padding: var(--spacing-050);
+		top: calc(100% + 2px);
+		max-width: max-content;
 	}
 }
 /* stylelint-enable selector-class-pattern */

@@ -45,7 +45,7 @@
 
 	--border-radius: 2px;
 
-	--speed: 0.3s;
+	--speed: 0.2s;
 	--radius: 3px;
 }
 
@@ -122,7 +122,7 @@ ul {
 a {
 	color: hsl(246, 55%, 30%);
 	color: var(--color-primary);
-	transition: color 0.3s ease;
+	transition: color 0.2s ease;
 	transition: color var(--speed) ease
 }
 
@@ -181,7 +181,7 @@ input[type="submit"] {
 	font-size: var(--font-size-small);
 	padding: calc(1.5rem / 2) 1.5rem;
 	padding: var(--spacing-050) var(--spacing);
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 	transition: all var(--speed) ease
 }
 
@@ -324,6 +324,7 @@ body {
 @media (--desktop-nav) {
 
 .main-navigation {
+		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
 }
@@ -363,7 +364,7 @@ body {
 	position: absolute;
 	right: 0;
 	top: 0;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.2s ease;
 	transition: background-color var(--speed) ease;
 	z-index: 2
 }
@@ -476,7 +477,7 @@ body {
 		flex-grow: 1;
 		padding: 4px;
 		text-decoration: none;
-		transition: background-color 0.3s ease;
+		transition: background-color 0.2s ease;
 		transition: background-color var(--speed) ease
 	}
 
@@ -584,6 +585,7 @@ body {
 	border-left: 1px solid var(--color-primary-light);
 	grid-area: toolbar;
 	margin-right: 1px;
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0
 }
@@ -604,14 +606,18 @@ body {
 }
 	}
 
+.home .contact-bar {
+		border-left: none;
+	}
+
 .contact-bar p {
 		background-color: hsl(0, 0%, 100%);
 		background-color: var(--color-white);
 		border-radius: 0 0 0 2px;
 		border-radius: 0 0 0 var(--border-radius);
 		margin: 0 0 0 auto;
-		padding: calc(1.5rem / 2) clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5));
-		padding: var(--spacing-050) var(--gutter);
+		padding: calc(1.5rem / 2);
+		padding: var(--spacing-050);
 		text-align: right;
 		max-width: -webkit-max-content;
 		max-width: -moz-max-content;
@@ -681,9 +687,10 @@ body {
 		display: flex;
 		flex-direction: column;
 		line-height: 1.25;
-		padding: 0.75rem 0.5rem 0.5rem;
+		padding: calc(1.5rem / 2);
+		padding: var(--spacing-050);
 		text-decoration: none;
-		transition: background-color 0.3s ease-in-out;
+		transition: background-color 0.2s ease-in-out;
 		transition: background-color var(--speed) ease-in-out;
 		max-width: 70px
 	}
@@ -702,6 +709,18 @@ body {
 			background-color: var(--color-gray-dark);
 			color: inherit;
 		}
+
+.widget_quick_escape .qe-anchor:focus .qe-focus-title,
+	.widget_quick_escape .qe-anchor:hover .qe-focus-title {
+		background-color: hsl(0, 0%, 100%);
+		background-color: var(--color-white);
+		padding: calc(1.5rem / 2);
+		padding: var(--spacing-050);
+		top: calc(100% + 2px);
+		max-width: -webkit-max-content;
+		max-width: -moz-max-content;
+		max-width: max-content;
+	}
 
 /* stylelint-enable selector-class-pattern */
 
@@ -887,7 +906,7 @@ body {
 		fill: hsl(246, 55%, 30%);
 		fill: var(--color-primary);
 		height: 2em;
-		transition: fill 0.3s ease;
+		transition: fill 0.2s ease;
 		transition: fill var(--speed) ease;
 		width: 2em
 	}
@@ -1087,6 +1106,18 @@ body {
 		padding: 0;
 	}
 
+/* Blockquote */
+
+.wp-block-quote {
+	font-size: 1.5rem;
+	font-size: var(--font-size-medium);
+	font-style: italic;
+}
+
+.wp-block-quote p {
+		line-height: 1.85;
+	}
+
 /*--------------------------------------------------------------
 	# Quicklinks
 --------------------------------------------------------------*/
@@ -1158,6 +1189,14 @@ body {
 }
 
 /*--------------------------------------------------------------
+	# 404 page
+--------------------------------------------------------------*/
+
+.error404 .entry-header {
+	text-align: left;
+}
+
+/*--------------------------------------------------------------
   # Accessibility
 --------------------------------------------------------------*/
 
@@ -1222,14 +1261,15 @@ body {
 .alignwide {
 	width: calc(100% + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
 	width: calc(100% + var(--gutter));
-	max-width: calc(960px + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
-	max-width: calc(var(--align-wide) + var(--gutter));
+	max-width: 100%;
 }
 
 .home .alignwide {
 		margin-left: auto;
 		margin-right: auto;
 		width: 100%;
+		max-width: calc(960px + clamp(calc(1.5rem / 2), 3vw, calc(1.5rem * 1.5)));
+		max-width: calc(var(--align-wide) + var(--gutter));
 	}
 
 .alignfull {
