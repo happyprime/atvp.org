@@ -121,6 +121,7 @@ pre {
 	--color-secondary-light: hsl(177, 31%, 95%);
 	--color-accent: hsl(36, 71%, 51%);
 	--color-alert: hsl(3, 75%, 43%);
+	--color-alert-hover: hsl(3, 75%, 33%);
 
 	--color-gray: hsl(30, 7%, 34%);
 	--color-gray-light: hsl(30, 7%, 95%);
@@ -148,7 +149,7 @@ pre {
 
 	--border-radius: 2px;
 
-	--speed: 0.2s;
+	--speed: 0.15s;
 	--radius: 3px;
 }
 
@@ -225,7 +226,7 @@ ul {
 a {
 	color: hsl(246, 55%, 30%);
 	color: var(--color-primary);
-	transition: color 0.2s ease;
+	transition: color 0.15s ease;
 	transition: color var(--speed) ease
 }
 
@@ -284,7 +285,7 @@ input[type="submit"] {
 	font-size: var(--font-size-small);
 	padding: calc(1.5rem / 2) 1.5rem;
 	padding: var(--spacing-050) var(--spacing);
-	transition: all 0.2s ease;
+	transition: all 0.15s ease;
 	transition: all var(--speed) ease
 }
 
@@ -467,7 +468,7 @@ body {
 	position: absolute;
 	right: 0;
 	top: 0;
-	transition: background-color 0.2s ease;
+	transition: background-color 0.15s ease;
 	transition: background-color var(--speed) ease;
 	z-index: 2
 }
@@ -580,7 +581,7 @@ body {
 		flex-grow: 1;
 		padding: 4px;
 		text-decoration: none;
-		transition: background-color 0.2s ease;
+		transition: background-color 0.15s ease;
 		transition: background-color var(--speed) ease
 	}
 
@@ -686,7 +687,10 @@ body {
 .contact-bar {
 	border-left: 1px solid hsl(246, 55%, 95%);
 	border-left: 1px solid var(--color-primary-light);
+	display: grid;
 	grid-area: toolbar;
+	grid-template-columns: 1fr -webkit-max-content;
+	grid-template-columns: 1fr max-content;
 	margin-right: 1px;
 	position: -webkit-sticky;
 	position: sticky;
@@ -719,8 +723,8 @@ body {
 		border-radius: 0 0 0 2px;
 		border-radius: 0 0 0 var(--border-radius);
 		margin: 0 0 0 auto;
-		padding: calc(1.5rem / 2);
-		padding: var(--spacing-050);
+		padding: calc(1.5rem / 2) 1.5rem calc(1.5rem / 2) calc(1.5rem / 2);
+		padding: var(--spacing-050) var(--spacing) var(--spacing-050) var(--spacing-050);
 		text-align: right;
 		max-width: -webkit-max-content;
 		max-width: -moz-max-content;
@@ -764,8 +768,7 @@ body {
 	font-size: 1rem;
 	font-size: var(--font-size-small);
 	margin-left: auto;
-	margin-top: 1.5rem;
-	margin-top: var(--spacing);
+	margin-top: 0;
 	text-align: center;
 	max-width: -webkit-max-content;
 	max-width: -moz-max-content;
@@ -786,6 +789,8 @@ body {
 		align-items: center;
 		background-color: hsl(3, 75%, 43%);
 		background-color: var(--color-alert);
+		border-radius: 0 0 0 2px;
+		border-radius: 0 0 0 var(--border-radius);
 		color: inherit;
 		display: flex;
 		flex-direction: column;
@@ -793,7 +798,7 @@ body {
 		padding: calc(1.5rem / 2);
 		padding: var(--spacing-050);
 		text-decoration: none;
-		transition: background-color 0.2s ease-in-out;
+		transition: background-color 0.15s ease-in-out;
 		transition: background-color var(--speed) ease-in-out;
 		max-width: 70px
 	}
@@ -808,8 +813,8 @@ body {
 		}
 
 .widget_quick_escape .js-quick-escape:hover {
-			background-color: hsl(30, 7%, 11%);
-			background-color: var(--color-gray-dark);
+			background-color: hsl(3, 75%, 33%);
+			background-color: var(--color-alert-hover);
 			color: inherit;
 		}
 
@@ -817,6 +822,8 @@ body {
 	.widget_quick_escape .qe-anchor:hover .qe-focus-title {
 		background-color: hsl(0, 0%, 100%);
 		background-color: var(--color-white);
+		color: hsl(3, 75%, 33%);
+		color: var(--color-alert-hover);
 		padding: calc(1.5rem / 2);
 		padding: var(--spacing-050);
 		top: calc(100% + 2px);
@@ -1009,7 +1016,7 @@ body {
 		fill: hsl(246, 55%, 30%);
 		fill: var(--color-primary);
 		height: 2em;
-		transition: fill 0.2s ease;
+		transition: fill 0.15s ease;
 		transition: fill var(--speed) ease;
 		width: 2em
 	}
@@ -1073,8 +1080,8 @@ body {
 
 .entry-header,
 .page-header {
-	padding-top: clamp(1.5rem, 7.5vw, calc(1.5rem * 4));
-	padding-top: clamp(var(--spacing), 7.5vw, var(--spacing-4));
+	padding-top: clamp(1.5rem, 7.5vw, calc(1.5rem * 3));
+	padding-top: clamp(var(--spacing), 7.5vw, var(--spacing-3));
 	margin-bottom: clamp(1.5rem, 5vw, calc(1.5rem * 3));
 	margin-bottom: clamp(var(--spacing), 5vw, var(--spacing-3));
 }

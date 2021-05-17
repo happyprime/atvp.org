@@ -17,6 +17,7 @@
 	--color-secondary-light: hsl(177, 31%, 95%);
 	--color-accent: hsl(36, 71%, 51%);
 	--color-alert: hsl(3, 75%, 43%);
+	--color-alert-hover: hsl(3, 75%, 33%);
 
 	--color-gray: hsl(30, 7%, 34%);
 	--color-gray-light: hsl(30, 7%, 95%);
@@ -44,6 +45,6 @@
 
 	--border-radius: 2px;
 
-	--speed: 0.2s;
+	--speed: 0.15s;
 	--radius: 3px;
 }
