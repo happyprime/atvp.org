@@ -325,7 +325,6 @@ body {
 @media (--desktop-nav) {
 
 .main-navigation {
-		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
 }
@@ -589,7 +588,6 @@ body {
 	grid-template-columns: 1fr -webkit-max-content;
 	grid-template-columns: 1fr max-content;
 	margin-right: 1px;
-	position: -webkit-sticky;
 	position: sticky;
 	top: 0
 }
