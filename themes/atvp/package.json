@@ -1,6 +1,6 @@
 {
 	"name": "atvp",
-	"version": "0.0.4",
+	"version": "0.0.8",
 	"description": "A WordPress theme for ATVP",
 	"devDependencies": {
 		"@wordpress/scripts": "^16.0.0",
