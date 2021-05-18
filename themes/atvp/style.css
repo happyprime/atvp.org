@@ -4,7 +4,7 @@
  Description:  A WordPress theme for atvp.org
  Author:       Happy Prime
  Author URI:   https://happyprime.co
- Version:      0.0.7
+ Version:      0.0.8
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -428,7 +428,6 @@ body {
 @media (min-width: 62.501em) {
 
 .main-navigation {
-		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
 }
@@ -692,7 +691,6 @@ body {
 	grid-template-columns: 1fr -webkit-max-content;
 	grid-template-columns: 1fr max-content;
 	margin-right: 1px;
-	position: -webkit-sticky;
 	position: sticky;
 	top: 0
 }
