@@ -1,4 +1,4 @@
-name: Deployment
+name: Staging Deployment
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     - name: Add SSH Key
       run: |
         mkdir -p ${HOME}/.ssh
-        echo "${{secrets.DEPLOY_KEY}}" > ${HOME}/.ssh/id_rsa
+        echo "${{secrets.MISSING_SSH_KEY}}" > ${HOME}/.ssh/id_rsa
         chmod 700 ${HOME}/.ssh
         chmod 600 ${HOME}/.ssh/*
         eval `ssh-agent -s`
@@ -22,7 +22,33 @@ jobs:
 
     - name: Sync wp-content directory
       run: |
-        rsync -chav --delete \
-        -e "ssh -p ${{secrets.DEPLOY_PORT}} -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" \
+        rsync -rcvzh --chmod=Dug=rwx,Do=rx,Fug=rw,Fo=r --delete \
+        -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" \
         --exclude-from=.deploy_ignore \
-        ./ ${{secrets.DEPLOY_USER}}@${{secrets.DEPLOY_HOST}}:${{secrets.DEPLOY_PATH}}
+        ./ ${{secrets.MISSING_DEPLOY_USER}}@${{secrets.MISSING_DEPLOY_HOST}}:${{secrets.STAGING_DEPLOY_PATH}}
+
+    - name: Successful deployment Slack notification
+      if: success()
+      uses: wearerequired/slack-messaging-action@v1
+      with:
+        bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
+        channel: project-atvp
+        payload: >-
+          {
+            "icon_emoji": ":shipit:",
+            "username": "Happy Prime Deployment: ${{ github.event.sender.login }}",
+            "text": ":white_check_mark: Deployment from the <https://github.com/${{ github.repository }}|${{ github.repository }}> `develop` branch to https://atvp.missingcolors.com complete."
+          }
+
+    - name: Deployment failed Slack notification
+      if: failure()
+      uses: wearerequired/slack-messaging-action@v1
+      with:
+        bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
+        channel: project-atvp
+        payload: >-
+          {
+            "icon_emoji": ":shipit:",
+            "username": "Happy Prime Deployment: ${{ github.event.sender.login }}",
+            "text": ":large_red_square: Deployment from the <https://github.com/${{ github.repository }}|${{ github.repository }}> `develop` branch to https://atvp.missingcolors.com failed."
+          }
