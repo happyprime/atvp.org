@@ -1,10 +1,24 @@
 {
-  "extends": ["stylelint-config-wordpress"],
+  "extends": ["@wordpress/stylelint-config"],
   "plugins": [],
-  "ignoreFiles": [
-	  "css/wp/*.css"
-  ],
+  "ignoreFiles": [],
   "rules": {
-	  declaration-property-unit-whitelist: null
+	declaration-property-unit-whitelist: null,
+	max-line-length: null,
+	no-descending-specificity: null,
+	'selector-class-pattern': [
+		'^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+)?$',
+		{
+			message:
+			'Selector should use lowercase and separate words with hyphens or underscores (selector-class-pattern)',
+		},
+	],
+	'selector-id-pattern': [
+		'^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+)?$',
+		{
+			message:
+				'Selector should use lowercase and separate words with hyphens or underscores (selector-id-pattern)',
+		},
+	],
   }
 }
