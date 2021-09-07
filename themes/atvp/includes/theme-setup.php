@@ -256,11 +256,13 @@ function widgets_init() {
  * Enqueue scripts and styles.
  */
 function enqueue_assets() {
+	$asset_data = require dirname( __DIR__ ) . '/style.css.php';
+
 	wp_enqueue_style(
 		'atvp-style',
 		get_stylesheet_uri(),
 		array(),
-		\ATVP\Utilities\get_version()
+		$asset_data['version']
 	);
 	wp_style_add_data( 'atvp-style', 'rtl', 'replace' );
 
