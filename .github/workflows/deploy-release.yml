@@ -29,7 +29,7 @@ jobs:
 
     - name: Successful deployment Slack notification
       if: success()
-      uses: wearerequired/slack-messaging-action@v2
+      uses: wearerequired/slack-messaging-action@v3
       with:
         bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
         channel: project-atvp
@@ -42,7 +42,7 @@ jobs:
 
     - name: Deployment failed Slack notification
       if: failure()
-      uses: wearerequired/slack-messaging-action@v2
+      uses: wearerequired/slack-messaging-action@v3
       with:
         bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
         channel: project-atvp
