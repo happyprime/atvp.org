@@ -1,0 +1,19 @@
+# This file is managed in https://github.com/happyprime/projects
+name: Production deployment from trunk
+
+on:
+  push:
+    branches: [ trunk ]
+
+jobs:
+  call-workflow:
+    uses: happyprime/workflows/.github/workflows/deploy.yml@trunk
+    secrets:
+      REMOTE_SSH_PRIVATE_KEY: ${{ secrets.REMOTE_SSH_PRIVATE_KEY }}
+      REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+      REMOTE_USER: ${{ secrets.REMOTE_USER }}
+      REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+      REMOTE_TARGET: ${{ secrets.REMOTE_TARGET }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+      PRODUCTION_URL: ${{ secrets.PRODUCTION_URL }}
