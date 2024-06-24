@@ -16,12 +16,12 @@
 	},
 	"scripts": {
 		"build": "npm run stylelint & npm run postcss:main & npm run postcss:editor",
-		"build:js": "wp-scripts build js/src/*.js --output-path=js/build/",
+		"build:js": "wp-scripts build themes/atvp/js/src/*.js --output-path=themes/atvp/js/build/",
 		"format:js": "wp-scripts format",
 		"lint:js": "wp-scripts lint-js",
-		"postcss:main": "postcss -o style.css css/style.css",
-		"postcss:editor": "postcss -o editor-style.css css/editor-style.css",
-		"stylelint": "stylelint css/**/*.css"
+		"postcss:main": "postcss -o themes/atvp/style.css themes/atvp/css/style.css",
+		"postcss:editor": "postcss -o themes/atvp/editor-style.css themes/atvp/css/editor-style.css",
+		"stylelint": "stylelint themes/atvp/css/**/*.css"
 	},
 	"repository": {
 		"type": "git",
