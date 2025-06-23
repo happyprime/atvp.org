@@ -1,1 +1,1 @@
-module.exports = require('@happyprime/prettier-config');
+module.exports = require('@happyprime/eslint-config/prettier');

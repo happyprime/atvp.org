@@ -1,59 +1,59 @@
 {
-  "name": "atvp.org",
-  "version": "0.0.1",
-  "description": "The atvp.org website.",
-  "author": "Happy Prime",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "wordpress",
-    "project"
-  ],
-  "homepage": "https://github.com/happyprime/atvp.org#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/happyprime/atvp.org.git"
-  },
-  "bugs": {
-    "url": "https://github.com/happyprime/atvp.org/issues"
-  },
-  "devDependencies": {
-    "@wordpress/scripts": "^30.16.0",
-    "@happyprime/eslint-config": "0.0.14",
-    "@happyprime/postcss-config": "^0.0.3",
-    "@happyprime/stylelint-config": "^0.0.6",
-    "@wordpress/icons": "^10.23.0",
-    "@wordpress/interactivity": "^6.23.0",
-    "@wordpress/npm-package-json-lint-config": "^5.23.0",
-    "npm-package-json-lint": "^8.0.0"
-  },
-  "scripts": {
-    "build": "npm run build:css && npm run build:js",
-    "lint": "npm run lint:css && npm run lint:js",
-    "fix": "npm run fix:css && npm run fix:js",
-    "build:css": "npm run build:css:theme",
-    "build:css:theme": "npm run lint:css:theme && npm run postcss",
-    "build:js": "npm run build:js:blocks && npm run build:js:features",
-    "build:js:blocks": "wp-scripts build --experimental-modules --webpack-src-dir=mu-plugins/atvp.org/blocks/src --output-path=mu-plugins/atvp.org/blocks/build/",
-    "build:js:features": "wp-scripts build mu-plugins/atvp.org/js/src/*.js --output-path=mu-plugins/atvp.org/js/build/",
-    "start:js": "npm run start:js:blocks && npm run start:js:features",
-    "start:js:blocks": "wp-scripts start --experimental-modules --webpack-src-dir=mu-plugins/atvp.org/blocks/src --output-path=mu-plugins/atvp.org/blocks/build/",
-    "start:js:features": "wp-scripts start mu-plugins/atvp.org/js/src/*.js --output-path=mu-plugins/atvp.org/js/build/",
-    "postcss": "npm run postcss:main && npm run postcss:editor",
-    "postcss:main": "postcss -o themes/atvp.org/style.css themes/atvp.org/css/style.css",
-    "postcss:editor": "postcss -o themes/atvp.org/editor-style.css themes/atvp.org/css/editor-style.css",
-    "lint:css": "npm run lint:css:theme",
-    "lint:css:theme": "stylelint themes/atvp.org/css/**/*.css",
-    "fix:css": "npm run fix:css:theme",
-    "fix:css:theme": "stylelint --fix themes/atvp.org/css/**/*.css",
-    "lint:js": "npm run lint:js:blocks && npm run lint:js:features",
-    "lint:js:blocks": "eslint mu-plugins/atvp.org/blocks/src/",
-    "lint:js:features": "eslint mu-plugins/atvp.org/js/src/",
-    "fix:js": "npm run fix:js:blocks && npm run fix:js:features",
-    "fix:js:blocks": "eslint --fix mu-plugins/atvp.org/blocks/src/",
-    "fix:js:features": "eslint --fix mu-plugins/atvp.org/js/src/",
-    "lint:package": "node ./node_modules/npm-package-json-lint/dist/cli.js ./"
-  },
-  "npmpackagejsonlint": {
-    "extends": "@wordpress/npm-package-json-lint-config"
-  }
+	"name": "atvp.org",
+	"version": "0.0.1",
+	"description": "The atvp.org website.",
+	"author": "Happy Prime",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"project"
+	],
+	"homepage": "https://github.com/happyprime/atvp.org#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/happyprime/atvp.org.git"
+	},
+	"bugs": {
+		"url": "https://github.com/happyprime/atvp.org/issues"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^30.16.0",
+		"@happyprime/eslint-config": "0.0.14",
+		"@happyprime/postcss-config": "^0.0.3",
+		"@happyprime/stylelint-config": "^0.0.6",
+		"@wordpress/icons": "^10.23.0",
+		"@wordpress/interactivity": "^6.23.0",
+		"@wordpress/npm-package-json-lint-config": "^5.23.0",
+		"npm-package-json-lint": "^8.0.0"
+	},
+	"scripts": {
+		"build": "npm run build:css && npm run build:js",
+		"lint": "npm run lint:css && npm run lint:js",
+		"fix": "npm run fix:css && npm run fix:js",
+		"build:css": "npm run build:css:theme",
+		"build:css:theme": "npm run lint:css:theme && npm run postcss",
+		"build:js": "npm run build:js:blocks && npm run build:js:features",
+		"build:js:blocks": "wp-scripts build --experimental-modules --webpack-src-dir=mu-plugins/atvp.org/blocks/src --output-path=mu-plugins/atvp.org/blocks/build/",
+		"build:js:features": "wp-scripts build mu-plugins/atvp.org/js/src/*.js --output-path=mu-plugins/atvp.org/js/build/",
+		"start:js": "npm run start:js:blocks && npm run start:js:features",
+		"start:js:blocks": "wp-scripts start --experimental-modules --webpack-src-dir=mu-plugins/atvp.org/blocks/src --output-path=mu-plugins/atvp.org/blocks/build/",
+		"start:js:features": "wp-scripts start mu-plugins/atvp.org/js/src/*.js --output-path=mu-plugins/atvp.org/js/build/",
+		"postcss": "npm run postcss:main && npm run postcss:editor",
+		"postcss:main": "postcss -o themes/atvp.org/style.css themes/atvp.org/css/style.css",
+		"postcss:editor": "postcss -o themes/atvp.org/editor-style.css themes/atvp.org/css/editor-style.css",
+		"lint:css": "npm run lint:css:theme",
+		"lint:css:theme": "stylelint themes/atvp.org/css/**/*.css",
+		"fix:css": "npm run fix:css:theme",
+		"fix:css:theme": "stylelint --fix themes/atvp.org/css/**/*.css",
+		"lint:js": "npm run lint:js:blocks && npm run lint:js:features",
+		"lint:js:blocks": "eslint mu-plugins/atvp.org/blocks/src/",
+		"lint:js:features": "eslint mu-plugins/atvp.org/js/src/",
+		"fix:js": "npm run fix:js:blocks && npm run fix:js:features",
+		"fix:js:blocks": "eslint --fix mu-plugins/atvp.org/blocks/src/",
+		"fix:js:features": "eslint --fix mu-plugins/atvp.org/js/src/",
+		"lint:package": "node ./node_modules/npm-package-json-lint/dist/cli.js ./"
+	},
+	"npmpackagejsonlint": {
+		"extends": "@wordpress/npm-package-json-lint-config"
+	}
 }
