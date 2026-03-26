@@ -1,5 +1,5 @@
 parameters:
-  level: 5
+  level: 1
   paths:
     - %rootDir%/../../../themes/atvp
   scanFiles:

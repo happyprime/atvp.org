@@ -1,6 +1,8 @@
 <?php
 /**
- * Custom template tags for this theme
+ * Custom template tags for this theme.
+ *
+ * @package ATVP
  */
 
 namespace ATVP\TemplateTags;
@@ -29,7 +31,6 @@ function posted_on() {
 	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 }
 
 /**
@@ -43,7 +44,6 @@ function posted_by() {
 	);
 
 	echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 }
 
 /**

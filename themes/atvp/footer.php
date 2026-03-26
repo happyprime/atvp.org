@@ -1,7 +1,10 @@
 <?php
 /**
- * The template for displaying the footer
+ * The template for displaying the footer.
+ *
+ * @package ATVP
  */
+
 ?>
 
 	<footer id="colophon" class="site-footer">

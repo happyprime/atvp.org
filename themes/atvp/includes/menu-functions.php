@@ -1,6 +1,8 @@
 <?php
 /**
  * Functions and filters related to the menus.
+ *
+ * @package ATVP
  */
 
 namespace ATVP\Menus;

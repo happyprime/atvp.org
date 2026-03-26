@@ -1,7 +1,10 @@
 <?php
 /**
  * Site logo
+ *
+ * @package ATVP
  */
+
 ?>
 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 	<svg

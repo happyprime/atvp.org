@@ -1,4 +1,9 @@
 <?php
+/**
+ * The main template file.
+ *
+ * @package ATVP
+ */
 
 get_header();
 

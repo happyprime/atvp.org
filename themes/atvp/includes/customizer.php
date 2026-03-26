@@ -1,6 +1,8 @@
 <?php
 /**
  * Customizer configurations.
+ *
+ * @package ATVP
  */
 
 namespace ATVP\Customizer;

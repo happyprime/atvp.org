@@ -1,6 +1,8 @@
 <?php
 /**
  * General theme setup.
+ *
+ * @package ATVP
  */
 
 namespace ATVP\ThemeSetup;

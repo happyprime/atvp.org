@@ -1,4 +1,9 @@
 <?php
+/**
+ * Theme functions and definitions.
+ *
+ * @package ATVP
+ */
 
 /**
  * Load general utilities available in the theme.

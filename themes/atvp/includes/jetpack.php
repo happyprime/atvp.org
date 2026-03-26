@@ -1,6 +1,8 @@
 <?php
 /**
- * Jetpack Compatibility File
+ * Jetpack Compatibility File.
+ *
+ * @package ATVP
  */
 
 namespace ATVP\Jetpack;
@@ -21,7 +23,7 @@ function setup() {
 	add_theme_support(
 		'jetpack-content-options',
 		array(
-			'post-details' => array(
+			'post-details'    => array(
 				'stylesheet' => 'atvp-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',

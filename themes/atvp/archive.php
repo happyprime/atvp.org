@@ -1,4 +1,9 @@
 <?php
+/**
+ * The template for displaying archive pages.
+ *
+ * @package ATVP
+ */
 
 get_header();
 

@@ -1,6 +1,8 @@
 <?php
 /**
  * SVG Icons class
+ *
+ * @package ATVP
  */
 
 /**
