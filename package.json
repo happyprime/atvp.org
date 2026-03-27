@@ -8,7 +8,7 @@
 		"@happyprime/eslint-config": "1.0.0",
 		"@happyprime/postcss-config": "^0.0.4",
 		"@happyprime/stylelint-config": "^0.0.6",
-		"@wordpress/env": "^10.23.0",
+		"@wordpress/env": "^11.2.0",
 		"@wordpress/scripts": "^30.16.0"
 	},
 	"scripts": {
