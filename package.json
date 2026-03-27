@@ -8,9 +8,14 @@
 		"@happyprime/eslint-config": "1.0.0",
 		"@happyprime/postcss-config": "^0.0.4",
 		"@happyprime/stylelint-config": "^0.0.6",
+		"@wordpress/env": "^10.23.0",
 		"@wordpress/scripts": "^30.16.0"
 	},
 	"scripts": {
+		"wp-env": "wp-env",
+		"wp-env:start": "wp-env start",
+		"wp-env:stop": "wp-env stop",
+		"wp-env:destroy": "wp-env destroy",
 		"build": "npm run build:css && npm run build:js",
 		"lint": "npm run lint:css && npm run lint:js",
 		"fix": "npm run fix:css && npm run fix:js",
