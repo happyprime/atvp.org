@@ -1,0 +1,7 @@
+# This project provides a theme.
++ /themes/
++ /themes/atvp/***
+
+# This project does not require any other files.
+- /themes/*
+- /*

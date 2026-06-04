@@ -1,8 +1,8 @@
 import { __ } from '@wordpress/i18n';
 
-( ( root, factory ) => {
+((root, factory) => {
 	root.navigation = factory();
-} )( typeof self !== 'undefined' ? self : this, () => {
+})(typeof self !== 'undefined' ? self : this, () => {
 	'use strict';
 
 	// Object for public APIs.
@@ -15,27 +15,27 @@ import { __ } from '@wordpress/i18n';
 	 * Merge user options with the default settings.
 	 *
 	 * @private
-	 * @param {Object} options  User settings.
+	 * @param {object} options  User settings.
 	 */
-	const extendDefaults = ( options ) => {
+	const extendDefaults = (options) => {
 		const defaults = {
 			menu: null,
 			toggle: null,
 			menuLabel: {
-				open: __( 'Open menu' ),
-				close: __( 'Close menu' ),
+				open: __('Open menu'),
+				close: __('Close menu'),
 			},
 			submenuLabel: {
-				open: __( 'Open sub-menu' ),
-				close: __( 'Close sub-menu' ),
+				open: __('Open sub-menu'),
+				close: __('Close sub-menu'),
 			},
 		};
 
 		let property;
 
-		for ( property in options ) {
-			if ( Object.prototype.hasOwnProperty.call( options, property ) ) {
-				defaults[ property ] = options[ property ];
+		for (property in options) {
+			if (Object.prototype.hasOwnProperty.call(options, property)) {
+				defaults[property] = options[property];
 			}
 		}
 
@@ -43,12 +43,12 @@ import { __ } from '@wordpress/i18n';
 	};
 
 	const setMarginBottomValue = () => {
-		const siteFooter = document.querySelector( '.site-footer' );
+		const siteFooter = document.querySelector('.site-footer');
 
-		if ( siteFooter ) {
+		if (siteFooter) {
 			settings.menu.style.setProperty(
 				'--margin-bottom',
-				`${ siteFooter.offsetHeight }px`
+				`${siteFooter.offsetHeight}px`
 			);
 		}
 	};
@@ -59,7 +59,7 @@ import { __ } from '@wordpress/i18n';
 	 * @private
 	 */
 	const updateMenu = () => {
-		settings.menu.classList.add( 'js-menu' );
+		settings.menu.classList.add('js-menu');
 
 		setMarginBottomValue();
 	};
@@ -72,9 +72,9 @@ import { __ } from '@wordpress/i18n';
 	const updateMenuToggle = () => {
 		const menuToggle = settings.toggle;
 
-		menuToggle.classList.add( 'js-menu-toggle' );
-		menuToggle.setAttribute( 'aria-expanded', 'false' );
-		menuToggle.setAttribute( 'aria-label', settings.menuLabel.open );
+		menuToggle.classList.add('js-menu-toggle');
+		menuToggle.setAttribute('aria-expanded', 'false');
+		menuToggle.setAttribute('aria-label', settings.menuLabel.open);
 		menuToggle.hidden = false;
 	};
 
@@ -85,18 +85,18 @@ import { __ } from '@wordpress/i18n';
 	 *
 	 * @param {boolean} expanded Whether the section is open by default
 	 *
-	 * @return {Object} toggleButton
+	 * @returns {object} toggleButton
 	 */
-	const getSubMenuToggle = ( expanded = false ) => {
-		const toggleButton = document.createElement( 'button' );
+	const getSubMenuToggle = (expanded = false) => {
+		const toggleButton = document.createElement('button');
 		const ariaExpanded = expanded ? 'true' : 'false';
 		const ariaLabel = expanded
 			? settings.submenuLabel.close
 			: settings.submenuLabel.open;
 
-		toggleButton.classList.add( 'submenu-toggle', 'js-sub-menu-toggle' );
-		toggleButton.setAttribute( 'aria-expanded', ariaExpanded );
-		toggleButton.setAttribute( 'aria-label', ariaLabel );
+		toggleButton.classList.add('submenu-toggle', 'js-sub-menu-toggle');
+		toggleButton.setAttribute('aria-expanded', ariaExpanded);
+		toggleButton.setAttribute('aria-label', ariaLabel);
 
 		return toggleButton;
 	};
@@ -110,32 +110,32 @@ import { __ } from '@wordpress/i18n';
 		const menu = settings.menu;
 
 		// Find any sub-menus.
-		const subMenus = menu.querySelectorAll( 'ul' );
+		const subMenus = menu.querySelectorAll('ul');
 
 		// Return early if there are no sub-menus.
-		if ( ! subMenus.length ) {
+		if (!subMenus.length) {
 			return;
 		}
 
 		// Add a toggle button for each sub-menu.
-		subMenus.forEach( ( submenu ) => {
+		subMenus.forEach((submenu) => {
 			const listItem = submenu.parentElement;
 
-			if ( listItem.querySelector( '.js-sub-menu-toggle' ) ) {
+			if (listItem.querySelector('.js-sub-menu-toggle')) {
 				return;
 			}
 
 			// Create the toggle button.
 			const toggleButton =
-				listItem.classList.contains( 'current-menu-ancestor' ) ||
-				listItem.classList.contains( 'current-menu-item' )
-					? getSubMenuToggle( true )
+				listItem.classList.contains('current-menu-ancestor') ||
+				listItem.classList.contains('current-menu-item')
+					? getSubMenuToggle(true)
 					: getSubMenuToggle();
 
-			listItem.insertBefore( toggleButton, submenu );
-		} );
+			listItem.insertBefore(toggleButton, submenu);
+		});
 
-		menu.classList.add( 'has-sub-menus', 'js-has-sub-menus' );
+		menu.classList.add('has-sub-menus', 'js-has-sub-menus');
 	};
 
 	/**
@@ -144,12 +144,12 @@ import { __ } from '@wordpress/i18n';
 	 * @private
 	 * @param {Event} event The click event.
 	 */
-	const clickHandler = ( event ) => {
+	const clickHandler = (event) => {
 		let target = event.target;
 		let label;
 		let elementToToggle;
 
-		if ( target.classList.contains( 'js-sub-menu-toggle' ) ) {
+		if (target.classList.contains('js-sub-menu-toggle')) {
 			label = settings.submenuLabel;
 			elementToToggle = target.nextElementSibling;
 		} else {
@@ -157,23 +157,21 @@ import { __ } from '@wordpress/i18n';
 			label = settings.menuLabel;
 			elementToToggle = settings.menu;
 
-			document.body.classList.toggle( `${ settings.menu.id }-open` );
+			document.body.classList.toggle(`${settings.menu.id}-open`);
 		}
 
 		const expanded =
-			'false' === target.getAttribute( 'aria-expanded' )
-				? 'true'
-				: 'false';
+			'false' === target.getAttribute('aria-expanded') ? 'true' : 'false';
 
 		label =
-			label.open === target.getAttribute( 'aria-label' )
+			label.open === target.getAttribute('aria-label')
 				? label.close
 				: label.open;
 
-		target.setAttribute( 'aria-expanded', expanded );
-		target.setAttribute( 'aria-label', label );
+		target.setAttribute('aria-expanded', expanded);
+		target.setAttribute('aria-label', label);
 
-		elementToToggle.classList.toggle( 'toggled-open' );
+		elementToToggle.classList.toggle('toggled-open');
 	};
 
 	/**
@@ -183,22 +181,18 @@ import { __ } from '@wordpress/i18n';
 	 */
 	navigation.destroy = () => {
 		// Return early if the plugin isn't already initialized.
-		if ( ! settings ) {
+		if (!settings) {
 			return;
 		}
 
 		// Remove event listeners.
-		settings.toggle.removeEventListener( 'click', clickHandler, false );
+		settings.toggle.removeEventListener('click', clickHandler, false);
 		settings.menu
-			.querySelectorAll( '.js-sub-menu-toggle' )
-			.forEach( ( subMenuToggle ) => {
-				subMenuToggle.removeEventListener(
-					'click',
-					clickHandler,
-					false
-				);
-			} );
-		window.removeEventListener( 'resize', setMarginBottomValue, false );
+			.querySelectorAll('.js-sub-menu-toggle')
+			.forEach((subMenuToggle) => {
+				subMenuToggle.removeEventListener('click', clickHandler, false);
+			});
+		window.removeEventListener('resize', setMarginBottomValue, false);
 
 		// Reset variables.
 		settings = null;
@@ -208,13 +202,13 @@ import { __ } from '@wordpress/i18n';
 	 * Initializes the plugin.
 	 *
 	 * @public
-	 * @param {Object} options        User settings.
-	 * @param {Object} options.menu   The `ul` element containing the menu items. Required. Defaults to `null`.
-	 * @param {Object} options.toggle The element used to toggle the disply of the menu. Required. Defaults to `null`.
+	 * @param {object} options        User settings.
+	 * @param {object} options.menu   The `ul` element containing the menu items. Required. Defaults to `null`.
+	 * @param {object} options.toggle The element used to toggle the disply of the menu. Required. Defaults to `null`.
 	 */
-	navigation.init = ( options ) => {
+	navigation.init = (options) => {
 		// Check for required settings.
-		if ( ! options.menu || ! options.toggle ) {
+		if (!options.menu || !options.toggle) {
 			return;
 		}
 
@@ -222,7 +216,7 @@ import { __ } from '@wordpress/i18n';
 		navigation.destroy();
 
 		// Merge user options with defaults.
-		settings = extendDefaults( options || {} );
+		settings = extendDefaults(options || {});
 
 		updateMenu();
 
@@ -231,15 +225,15 @@ import { __ } from '@wordpress/i18n';
 		addSubMenusToggles();
 
 		// Listen for click events on the navigation element.
-		settings.toggle.addEventListener( 'click', clickHandler, false );
+		settings.toggle.addEventListener('click', clickHandler, false);
 		settings.menu
-			.querySelectorAll( '.js-sub-menu-toggle' )
-			.forEach( ( subMenuToggle ) => {
-				subMenuToggle.addEventListener( 'click', clickHandler, false );
-			} );
+			.querySelectorAll('.js-sub-menu-toggle')
+			.forEach((subMenuToggle) => {
+				subMenuToggle.addEventListener('click', clickHandler, false);
+			});
 
-		window.addEventListener( 'resize', setMarginBottomValue, false );
+		window.addEventListener('resize', setMarginBottomValue, false);
 	};
 
 	return navigation;
-} );
+});

@@ -7,9 +7,10 @@
 	"devDependencies": {
 		"@happyprime/eslint-config": "1.0.0",
 		"@happyprime/postcss-config": "^0.0.4",
+		"@happyprime/reglance": "^2.0.0",
 		"@happyprime/stylelint-config": "^0.0.6",
-		"@wordpress/env": "^11.2.0",
-		"@wordpress/scripts": "^30.16.0"
+		"@wordpress/env": "^11.8.0",
+		"@wordpress/scripts": "^32.4.0"
 	},
 	"scripts": {
 		"env": "wp-env",
