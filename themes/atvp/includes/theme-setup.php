@@ -331,8 +331,8 @@ function filter_primary_menu_css_class( $classes, $item, $args ) {
 
 		$classes = array_filter(
 			$classes,
-			function ( $class ) use ( $allowed_classes ) {
-				return in_array( $class, $allowed_classes, true );
+			function ( $css_class ) use ( $allowed_classes ) {
+				return in_array( $css_class, $allowed_classes, true );
 			}
 		);
 
