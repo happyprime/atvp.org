@@ -1,0 +1,7 @@
+{
+	"name": "ATVP",
+	"domain": "https://atvp.test",
+	"paths": {
+		"home": "/"
+	}
+}
