@@ -1,4 +1,9 @@
 <?php
+/**
+ * The template for displaying pages.
+ *
+ * @package ATVP
+ */
 
 get_header();
 

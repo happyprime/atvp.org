@@ -33,7 +33,7 @@ body {
 	line-height: 1.55;
 	min-height: 100vh;
 	scroll-behavior: smooth;
-	text-rendering: optimizeSpeed;
+	text-rendering: optimizespeed;
 }
 
 /* Box sizing rules */

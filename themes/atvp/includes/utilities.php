@@ -1,4 +1,9 @@
 <?php
+/**
+ * Theme utilities.
+ *
+ * @package ATVP
+ */
 
 namespace ATVP\Utilities;
 

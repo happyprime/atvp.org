@@ -7,6 +7,8 @@
 	<?php the_header_image_tag(); ?>
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
+ *
+ * @package ATVP
  */
 
 namespace ATVP\CustomHeader;

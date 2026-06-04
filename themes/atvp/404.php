@@ -1,4 +1,9 @@
 <?php
+/**
+ * The template for displaying 404 pages.
+ *
+ * @package ATVP
+ */
 
 get_header();
 

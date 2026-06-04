@@ -1,6 +1,8 @@
 <?php
 /**
- * Custom template tags for this theme
+ * Custom template tags for this theme.
+ *
+ * @package ATVP
  */
 
 namespace ATVP\TemplateTags;
@@ -29,7 +31,6 @@ function posted_on() {
 	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 }
 
 /**
@@ -43,7 +44,6 @@ function posted_by() {
 	);
 
 	echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 }
 
 /**
@@ -146,12 +146,12 @@ function post_thumbnail() {
 /**
  * Display or return an SVG.
  *
- * @param string $name  The icon name.
- * @param bool   $echo  Whether to echo or return the markup.
- * @param string $group Icon group.
- * @param int    $size  The icon size.
+ * @param string $name    The icon name.
+ * @param bool   $display Whether to echo or return the markup.
+ * @param string $group   Icon group.
+ * @param int    $size    The icon size.
  */
-function svg( $name, $echo = true, $group = 'ui', $size = 24 ) {
+function svg( $name, $display = true, $group = 'ui', $size = 24 ) {
 	$svg = wp_kses(
 		\ATVP_SVG_Icons::get_svg( $group, $name, $size ),
 		array(
@@ -174,7 +174,7 @@ function svg( $name, $echo = true, $group = 'ui', $size = 24 ) {
 		return false;
 	}
 
-	if ( $echo ) {
+	if ( $display ) {
 		echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
 	} else {
 		return $svg;

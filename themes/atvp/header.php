@@ -1,4 +1,9 @@
 <?php
+/**
+ * The header template.
+ *
+ * @package ATVP
+ */
 
 ?>
 <!doctype html>

@@ -1,5 +1,34 @@
 {
-  "devDependencies": {
-    "@happyprime/reglance": "^2.0.0"
-  }
+	"name": "atvp",
+	"version": "0.0.1",
+	"description": "The atvp.org website.",
+	"author": "Happy Prime",
+	"license": "GPL-2.0-or-later",
+	"devDependencies": {
+		"@happyprime/eslint-config": "1.0.0",
+		"@happyprime/postcss-config": "^0.0.4",
+		"@happyprime/reglance": "^2.0.0",
+		"@happyprime/stylelint-config": "^0.0.6",
+		"@wordpress/env": "^11.8.0",
+		"@wordpress/scripts": "^32.4.0"
+	},
+	"scripts": {
+		"env": "wp-env",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"env:destroy": "wp-env destroy",
+		"build": "npm run build:css && npm run build:js",
+		"lint": "npm run lint:css && npm run lint:js",
+		"fix": "npm run fix:css && npm run fix:js",
+		"build:css": "npm run lint:css && npm run postcss",
+		"build:js": "wp-scripts build themes/atvp/js/src/*.js --output-path=themes/atvp/js/build/",
+		"start:js": "wp-scripts start themes/atvp/js/src/*.js --output-path=themes/atvp/js/build/",
+		"postcss": "npm run postcss:main && npm run postcss:editor",
+		"postcss:main": "postcss -o themes/atvp/style.css themes/atvp/css/style.css",
+		"postcss:editor": "postcss -o themes/atvp/editor-style.css themes/atvp/css/editor-style.css",
+		"lint:css": "stylelint themes/atvp/css/**/*.css",
+		"fix:css": "stylelint --fix themes/atvp/css/**/*.css",
+		"lint:js": "eslint themes/atvp/js/src/",
+		"fix:js": "eslint --fix themes/atvp/js/src/"
+	}
 }

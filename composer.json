@@ -1,0 +1,42 @@
+{
+	"name": "happyprime/atvp",
+	"type": "project",
+	"minimum-stability": "stable",
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "phpcompatibility/php-compatibility",
+				"type": "phpcodesniffer-standard",
+				"version": "9.99.9",
+				"source": {
+					"url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
+					"type": "git",
+					"reference": "9f7142356b5674164a6f6dbe12a7a1bcc632db21"
+				}
+			}
+		}
+	],
+	"require-dev": {
+		"happyprime/coding-standards": "*",
+		"phpcompatibility/php-compatibility": "9.99.9"
+	},
+	"scripts": {
+		"phpcs": "vendor/bin/phpcs",
+		"phpcbf": "vendor/bin/phpcbf",
+		"phpstan": "vendor/bin/phpstan analyse --memory-limit=2048M",
+		"lint": "composer phpcs && composer phpstan",
+		"fix": "composer phpcbf"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
+		},
+		"preferred-install": {
+			"happyprime/*": "source",
+			"*": "dist"
+		}
+	}
+}
