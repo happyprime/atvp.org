@@ -1,1 +1,1 @@
-module.exports = require( '@happyprime/postcss-config' );
+module.exports = require('@happyprime/postcss-config');
