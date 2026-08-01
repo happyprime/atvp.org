@@ -1,1 +1,1 @@
-module.exports = require( '@happyprime/stylelint-config' );
+module.exports = require('@happyprime/stylelint-config');

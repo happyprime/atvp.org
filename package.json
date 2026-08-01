@@ -4,13 +4,27 @@
 	"description": "The atvp.org website.",
 	"author": "Happy Prime",
 	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"wp-content"
+	],
+	"homepage": "https://github.com/happyprime/atvp.org/",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/happyprime/atvp.org.git"
+	},
+	"bugs": {
+		"url": "https://github.com/happyprime/atvp.org/issues"
+	},
 	"devDependencies": {
 		"@happyprime/eslint-config": "1.0.0",
 		"@happyprime/postcss-config": "^0.0.4",
 		"@happyprime/reglance": "^2.0.0",
 		"@happyprime/stylelint-config": "^0.0.6",
 		"@wordpress/env": "^11.8.0",
-		"@wordpress/scripts": "^32.4.0"
+		"@wordpress/npm-package-json-lint-config": "^5.10.0",
+		"@wordpress/scripts": "^32.4.0",
+		"npm-package-json-lint": "^8.0.0"
 	},
 	"scripts": {
 		"env": "wp-env",
@@ -29,6 +43,10 @@
 		"lint:css": "stylelint themes/atvp/css/**/*.css",
 		"fix:css": "stylelint --fix themes/atvp/css/**/*.css",
 		"lint:js": "eslint themes/atvp/js/src/",
-		"fix:js": "eslint --fix themes/atvp/js/src/"
+		"fix:js": "eslint --fix themes/atvp/js/src/",
+		"lint:package": "node ./node_modules/npm-package-json-lint/dist/cli.js ./"
+	},
+	"npmpackagejsonlint": {
+		"extends": "@wordpress/npm-package-json-lint-config"
 	}
 }
